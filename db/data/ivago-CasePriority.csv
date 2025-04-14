@@ -1,0 +1,11 @@
+ID,casePriority
+1,"Negligible"
+2,"Very Low"
+3,"Minor"
+4,"Low"
+5,"Moderate"
+6,"Medium"
+7,"High"
+8,"Very High"
+9,"Critical"
+10,"Urgent"

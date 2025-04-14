@@ -1,0 +1,130 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "wasteapp",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.16.5",
+      "toolsId": "0c1f220c-44a4-4daf-8baf-8a8c896eddb1"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/waste/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.133.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "wasteapp.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "wasteapp.view",
+        "controlId": "splitApp",
+        "bypassed": {
+          "target": "notFound"
+        }
+      },
+      "routes": [
+        {
+          "pattern": "",
+          "name": "master",
+          "target": "master"
+        },
+        {
+          "pattern": "detail/{reportID}",
+          "name": "detail",
+          "target": "detail"
+        }
+      ],
+      "targets": {
+        "master": {
+          "viewName": "Master",
+          "viewId": "masterView",
+          "controlAggregation": "masterPages"
+        },
+        "detail": {
+          "viewName": "Detail",
+          "viewId": "detailView",
+          "controlAggregation": "detailPages"
+        },
+        "notFound": {
+          "viewName": "NotFound",
+          "viewId": "notFoundView",
+          "controlAggregation": "masterPages"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "wasteapp.view.SplitContainer",
+      "type": "XML",
+      "id": "SplitContainer"
+    }
+  }
+}

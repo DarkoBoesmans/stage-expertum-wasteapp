@@ -1,0 +1,36 @@
+{
+  "requires": {
+    "[hybrid]": {
+      "attachments": {
+        "scan": true
+      },
+      "waste-app-objectstore": {
+        "binding": {
+          "type": "cf",
+          "apiEndpoint": "https://api.cf.eu20-001.hana.ondemand.com",
+          "org": "expertum-saas-poc-ray-ai",
+          "space": "waste-app",
+          "instance": "waste-app-objectstore",
+          "key": "waste-app-objectstore-key"
+        },
+        "kind": "attachments-s3",
+        "vcap": {
+          "name": "waste-app-objectstore"
+        }
+      },
+      "waste-app-malware": {
+        "binding": {
+          "type": "cf",
+          "apiEndpoint": "https://api.cf.eu20-001.hana.ondemand.com",
+          "org": "expertum-saas-poc-ray-ai",
+          "space": "waste-app",
+          "instance": "waste-app-malware",
+          "key": "waste-app-malware-key"
+        },
+        "vcap": {
+          "name": "waste-app-malware"
+        }
+      }
+    }
+  }
+}

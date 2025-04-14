@@ -1,0 +1,91 @@
+<mvc:View
+    controllerName="wasteapp.controller.Master"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core"
+>
+    <Page
+        id="masterPage"
+        title="Sluikstort Meldingen"
+    >
+        <content>
+            <List
+                id="reportsList"
+                items="{
+                    path: '/DumpingReports',
+                    parameters: {
+                        $count: true,
+                        $expand: 'status,wasteType,areaType,locationType,casePriority'
+                    },
+                    sorter: [{
+                        path: 'wasteType/wasteType',
+                        descending: false,
+                        group: true
+                    }, {
+                        path: 'createdAt',
+                        descending: true
+                    }]
+                }"
+                growing="true"
+                growingScrollToLoad="true"
+                growingThreshold="20"
+                sticky="HeaderToolbar,InfoToolbar"
+            >
+                <headerToolbar>
+                    <OverflowToolbar id="masterHeaderToolbar">
+                        <SearchField
+                            id="searchField"
+                            placeholder="Zoeken..."
+                            search=".onSearch"
+                            liveChange=".onSearchLiveChange"
+                            width="100%"
+                        />
+                    </OverflowToolbar>
+                </headerToolbar>
+
+                <items>
+                    <ObjectListItem
+                        id="reportListItem"
+                        title="{
+                            parts: [
+                                {path: 'street'},
+                                {path: 'house_number'}
+                            ],
+                            formatter: '.formatter.formatAddress'
+                        }"
+                        type="Navigation"
+                        press=".onListItemPress"
+                    >
+                        <attributes>
+                            <ObjectAttribute
+                                id="masterDateAttribute"
+                                text="{path: 'createdAt', formatter: '.formatter.formatDate'}"
+                            />
+                        </attributes>
+                    </ObjectListItem>
+                </items>
+
+                <customData>
+                    <core:CustomData
+                        id="groupHeaderFactoryData"
+                        key="groupHeaderFactory"
+                        value=".getGroupHeader"
+                    />
+                </customData>
+            </List>
+        </content>
+
+        <footer>
+            <OverflowToolbar id="masterFooterToolbar">
+                <ToolbarSpacer id="masterFooterSpacer" />
+                <Button
+                    id="addButton"
+                    icon="sap-icon://add"
+                    press="onNewReportPress"
+                    tooltip="Nieuwe melding toevoegen"
+                />
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

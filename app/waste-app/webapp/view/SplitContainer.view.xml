@@ -1,0 +1,13 @@
+<mvc:View
+    controllerName="wasteapp.controller.App"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    height="100%"
+>
+    <SplitApp
+        id="splitApp"
+        mode="ShowHideMode"
+        defaultTransitionNameDetail="slide"
+    />
+</mvc:View>

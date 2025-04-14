@@ -1,0 +1,757 @@
+<mvc:View
+    controllerName="wasteapp.controller.Detail"
+    xmlns="sap.m"
+    xmlns:semantic="sap.f.semantic"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:u="sap.ui.unified"
+>
+    <semantic:SemanticPage id="detailPage">
+        <semantic:titleHeading>
+            <Title
+                id="detailTitle"
+                text="{= ${report>/isNew} ? 'Nieuwe melding aanmaken' : (${report>/editMode} ? 'Melding bewerken' : 
+                    (${report>/street} ? ${report>/street} + ' ' + ${report>/house_number} + ', ' + ${report>/postcode} + ' ' + ${report>/city} : 'Detail melding') )}"
+            />
+        </semantic:titleHeading>
+
+        <semantic:headerContent>
+            <l:HorizontalLayout id="detailHeaderContentLayout">
+                <l:VerticalLayout
+                    id="detailDateTimeLayout"
+                    class="sapUiMediumMarginEnd"
+                >
+                    <ObjectAttribute
+                        id="detailTimeText"
+                        title="Tijd"
+                        text="{
+                                    path: 'report>/createdAt',
+                                    formatter: '.formatter.formatTimeOnly'
+                                }"
+                        visible="{= !${report>/editMode} }"
+                    />
+                    <ObjectAttribute
+                        id="detailDateText"
+                        title="Datum"
+                        text="{
+                                    path: 'report>/createdAt',
+                                    formatter: '.formatter.formatDateOnly'
+                                }"
+                        visible="{= !${report>/editMode} }"
+                    />
+                    <ObjectAttribute
+                        id="statusIndicator"
+                        title="Status"
+                        text="{report>/status/status}"
+                        visible="{= !${report>/editMode} }"
+                    />
+                </l:VerticalLayout>
+            </l:HorizontalLayout>
+        </semantic:headerContent>
+
+        <semantic:content>
+            <l:VerticalLayout
+                id="detailContentLayout"
+                width="100%"
+            >
+                <HBox
+                    id="detailTopBox"
+                    class="sapUiSmallMarginBottom"
+                >
+                    <VBox
+                        id="detailImageSection"
+                        class="sapUiSmallMargin sapUiSmallPadding"
+                    >
+                        <Title
+                            id="detailImageSectionTitle"
+                            text="Afbeelding"
+                            class="sapUiSmallMarginBottom"
+                            level="H2"
+                        />
+
+                        <VBox
+                            id="detailImageContentVBox"
+                            alignItems="Center"
+                            justifyContent="Center"
+                            class="sapUiSmallMargin"
+                        >
+                            <Image
+                                id="detailWasteImage"
+                                src="{= ${report>/attachments/0/ID} ? 
+                                '/waste/DumpingReports/' + ${report>/ID} + '/attachments/' + ${report>/attachments/0/ID} + '/content' : 
+                                'sap-icon://camera' }"
+                                width="100%"
+                                height="auto"
+                                mode="Image"
+                                visible="{= !!${report>/attachments/0/ID} }"
+                                backgroundPosition="center"
+                                decorative="false"
+                            >
+                                <detailBox>
+                                    <LightBox id="detailLightBox">
+                                        <LightBoxItem
+                                            id="detailLightBoxItem"
+                                            imageSrc="{= ${report>/attachments/0/ID} ? 
+                                            '/waste/DumpingReports/' + ${report>/ID} + '/attachments/' + ${report>/attachments/0/ID} + '/content' : 
+                                            'sap-icon://camera' }"
+                                            alt="Afbeelding van melding"
+                                            title="Afbeelding Melding"
+                                            subtitle="{= 'Melding ID: ' + ${report>/additionalWasteDetails} }"
+                                        />
+                                    </LightBox>
+                                </detailBox>
+                            </Image>
+
+                            <HBox
+                                id="imageActionsHBox"
+                                visible="{= ${report>/editMode} === true &amp;&amp; ${report>/attachments/0/ID} ? true : false }"
+                                justifyContent="SpaceBetween"
+                                width="100%"
+                                class="sapUiSmallMarginTop"
+                            >
+                                <Button
+                                    id="deleteImageButton"
+                                    text="Verwijder foto"
+                                    icon="sap-icon://delete"
+                                    type="Reject"
+                                    press=".onDeleteImage"
+                                />
+
+                                <ObjectStatus
+                                    id="scanStatusLabel"
+                                    text="Gescand: OK"
+                                    state="Success"
+                                    icon="sap-icon://shield"
+                                    class="sapUiTinyMarginTop sapUiTinyMarginBegin sapUiTinyMarginEnd"
+                                />
+
+                                <Button
+                                    id="changeImageButton"
+                                    text="Update foto"
+                                    icon="sap-icon://camera"
+                                    press=".onChangeImage"
+                                />
+                            </HBox>
+
+                            <VBox
+                                id="newImageUploadVBox"
+                                visible="false"
+                                class="sapUiSmallMargin"
+                            >
+                                <Label
+                                    id="uploadTitleLabel"
+                                    text="Foto uploaden:"
+                                />
+                                <u:FileUploader
+                                    id="changeFileUploader"
+                                    name="file"
+                                    change="changeUploaderData"
+                                    tooltip="Kies een nieuwe afbeelding"
+                                    fileType="jpg,jpeg,png"
+                                    buttonText="Kies een afbeelding"
+                                />
+
+                                <Button
+                                    id="cancelUploadButton"
+                                    text="Annuleren"
+                                    press=".onCancelUpload"
+                                    class="sapUiSmallMarginTop"
+                                />
+                            </VBox>
+
+                            <VBox
+                                id="detailNoImageVBox"
+                                visible="{= !${report>/attachments/0/ID} }"
+                                class="sapUiSmallMargin"
+                            >
+                                <Text
+                                    id="detailNoImageText"
+                                    text="Geen afbeelding beschikbaar"
+                                    class="sapUiSmallMarginBottom"
+                                />
+
+                                <u:FileUploader
+                                    id="detailFileUploader"
+                                    name="file"
+                                    change="changeUploaderData"
+                                    tooltip="Kies een afbeelding"
+                                    fileType="jpg,jpeg,png"
+                                    buttonText="Kies een afbeelding"
+                                />
+                            </VBox>
+                        </VBox>
+                    </VBox>
+
+                    <VBox
+                        id="detailRightTopLayout"
+                        class="sapUiSmallMargin"
+                    >
+                        <VBox
+                            id="detailUploaderSection"
+                            class="sapUiSmallPadding sapUiSmallMarginBottom"
+                        >
+                            <Title
+                                id="detailUploaderSectionTitle"
+                                text="Contact informatie"
+                                class="sapUiSmallMarginBottom"
+                                level="H2"
+                            />
+
+                            <VBox
+                                id="uploaderContentVBox"
+                                class="sapUiSmallMargin"
+                            >
+                                <VBox
+                                    id="emailHBox"
+                                    class="sapUiSmallMarginBottom"
+                                >
+                                    <Label
+                                        id="emailLabel"
+                                        text="E-mail:"
+                                        class="sapUiTinyMarginEnd"
+                                    />
+
+                                    <Text
+                                        id="emailText"
+                                        text="{report>/email}"
+                                        visible="{= !${report>/editMode} }"
+                                    />
+
+                                    <Input
+                                        id="emailInput"
+                                        value="{report>/email}"
+                                        placeholder="email@example.com"
+                                        type="Email"
+                                        visible="{= ${report>/editMode} }"
+                                        width="100%"
+                                    />
+                                </VBox>
+
+                                <VBox
+                                    id="notifyVBox"
+                                    class="sapUiSmallMarginBottom"
+                                    alignItems="Center"
+                                >
+                                    <Label
+                                        id="notifyLabel"
+                                        text="Bij oplossing informeren:"
+                                    />
+
+                                    <Text
+                                        id="notifyStatus"
+                                        text="{= ${report>/notifyWhenResolved} ? 'Ja' : 'Nee' }"
+                                        visible="{= !${report>/editMode} }"
+                                    />
+
+                                    <CheckBox
+                                        id="notifyCheckBox"
+                                        selected="{report>/notifyWhenResolved}"
+                                        visible="{= ${report>/editMode} }"
+                                        text="Ja"
+                                    />
+                                </VBox>
+                            </VBox>
+                        </VBox>
+
+                        <VBox
+                            id="detailStatusSection"
+                            class="sapUiSmallPadding"
+                        >
+                            <Title
+                                id="detailStatusSectionTitle"
+                                text="Status"
+                                class="sapUiSmallMarginBottom"
+                                level="H2"
+                            />
+
+                            <VBox
+                                id="statusVBox"
+                                class="sapUiSmallMargin"
+                            >
+                                <Label
+                                    id="statusLabel"
+                                    text="Wijzig status:"
+                                    class="sapUiMediumMarginBottom sapUiMediumMarginTop"
+                                    visible="{= ${report>/editMode} }"
+                                />
+
+                                <RadioButtonGroup
+                                    id="statusRadioGroup"
+                                    selectedIndex="{= ${report>/status_ID} - 1}"
+                                    visible="{= ${report>/editMode} }"
+                                    select=".onStatusChange"
+                                >
+                                    <RadioButton
+                                        id="statusRadio1"
+                                        text="Te doen"
+                                    />
+
+                                    <RadioButton
+                                        id="statusRadio2"
+                                        text="In behandeling"
+                                    />
+
+                                    <RadioButton
+                                        id="statusRadio3"
+                                        text="Afgehandeld"
+                                    />
+                                </RadioButtonGroup>
+                            </VBox>
+                        </VBox>
+                    </VBox>
+                </HBox>
+
+                <HBox id="detailBottomBox">
+                    <VBox
+                        id="detailInfoSection"
+                        class="sapUiSmallMargin sapUiSmallPadding"
+                    >
+                        <Title
+                            id="detailInfoSectionTitle"
+                            text="Melding details"
+                            class="sapUiSmallMarginBottom"
+                            level="H2"
+                        />
+
+                        <VBox
+                            id="detailInfoContentVBox"
+                            class="sapUiMediumMargin"
+                        >
+                            <VBox
+                                id="detailDateTimeVBox"
+                                class="sapUiSmallMarginBottom"
+                            >
+                                <HBox
+                                    id="detailDateTimeHBox"
+                                    alignItems="Center"
+                                    class="sapUiSmallMarginBottom"
+                                >
+                                    <items>
+                                        <core:Icon
+                                            id="detailDateTimeIcon"
+                                            src="sap-icon://away"
+                                            class="sapUiTinyMarginEnd"
+                                        />
+
+                                        <Label
+                                            id="detailDateTimeLabel"
+                                            text="Datum/Tijd:"
+                                        />
+                                    </items>
+                                </HBox>
+                            </VBox>
+
+                            <VBox
+                                id="categoryTitleVBox"
+                                class="sapUiSmallMarginBottom"
+                            >
+                                <HBox
+                                    id="categoryHBox"
+                                    alignItems="Center"
+                                    class="sapUiSmallMarginBottom"
+                                >
+                                    <items>
+                                        <core:Icon
+                                            id="categoryIcon"
+                                            src="sap-icon://delete"
+                                            class="sapUiTinyMarginEnd"
+                                        />
+
+                                        <Label
+                                            id="categoryTitleLabel"
+                                            text="Melding:"
+                                        />
+                                    </items>
+                                </HBox>
+
+                                <Text
+                                    id="wasteType"
+                                    text="{report>/wasteType/wasteType}"
+                                    class="sapUiTinyMarginBottom"
+                                    visible="{= !${report>/editMode} }"
+                                />
+
+                                <VBox
+                                    id="categoryVBox"
+                                    class="sapUiSmallMarginBottom"
+                                    visible="{= ${report>/editMode} }"
+                                >
+                                    <Label
+                                        id="categoryLabel"
+                                        text="Categorie:"
+                                    />
+
+                                    <Select
+                                        id="categorySelect"
+                                        selectedKey="{report>/wasteType_ID}"
+                                        width="100%"
+                                        items="{
+                                        path: '/WasteTypes',
+                                        sorter: { path: 'wasteType' }
+                                    }"
+                                        visible="{= ${report>/editMode} }"
+                                    >
+                                        <core:Item
+                                            id="categoryItem"
+                                            key="{ID}"
+                                            text="{wasteType}"
+                                        />
+                                    </Select>
+                                </VBox>
+
+                                <Text
+                                    id="detailAreaTypeStatus"
+                                    text="{report>/areaType/areaType}"
+                                    class="sapUiTinyMarginBottom"
+                                    visible="{= !${report>/editMode} }"
+                                />
+
+                                <VBox
+                                    id="areaTypeVBox"
+                                    class="sapUiSmallMarginBottom"
+                                    visible="{= ${report>/editMode} }"
+                                >
+                                    <Label
+                                        id="areaTypeLabel"
+                                        text="Omgevingstype:"
+                                    />
+
+                                    <Select
+                                        id="areaTypeSelect"
+                                        selectedKey="{report>/areaType_ID}"
+                                        width="100%"
+                                        items="{
+                                        path: '/AreaTypes',
+                                        sorter: { path: 'areaType' }
+                                    }"
+                                    >
+                                        <core:Item
+                                            id="areaTypeItem"
+                                            key="{ID}"
+                                            text="{areaType}"
+                                        />
+                                    </Select>
+                                </VBox>
+
+                                <Text
+                                    id="wasteDetailsText"
+                                    text="{report>/additionalWasteDetails}"
+                                    class="sapUiTinyMarginBottom"
+                                    visible="{= !${report>/editMode} }"
+                                />
+
+                                <VBox
+                                    id="wasteDetailsVBox"
+                                    class="sapUiSmallMarginBottom"
+                                    visible="{= ${report>/editMode} }"
+                                >
+                                    <Label
+                                        id="wasteDetailsLabel"
+                                        text="Details afval:"
+                                    />
+
+                                    <TextArea
+                                        id="wasteDetailsTextArea"
+                                        value="{report>/additionalWasteDetails}"
+                                        width="100%"
+                                        placeholder="Beschrijf het afval..."
+                                    />
+                                </VBox>
+
+                                <Text
+                                    id="extraInfoText"
+                                    text="{= ${report>/extraInfo} || 'Geen extra informatie verstrekt' }"
+                                    class="sapUiTinyMarginBottom"
+                                    visible="{= !${report>/editMode} }"
+                                />
+
+                                <VBox
+                                    id="extraInfoVBox"
+                                    class="sapUiSmallMarginBottom"
+                                    visible="{= ${report>/editMode} }"
+                                >
+                                    <Label
+                                        id="extraInfoLabel"
+                                        text="Extra info:"
+                                    />
+
+                                    <TextArea
+                                        id="extraInfoTextArea"
+                                        value="{report>/extraInfo}"
+                                        width="100%"
+                                        placeholder="Voeg extra informatie toe..."
+                                    />
+                                </VBox>
+                            </VBox>
+                        </VBox>
+                    </VBox>
+
+                    <VBox
+                        id="locationSection"
+                        class="sapUiSmallMargin sapUiSmallPadding"
+                    >
+                        <Title
+                            id="locationSectionTitle"
+                            text="Locatie"
+                            class="sapUiSmallMarginBottom"
+                            level="H2"
+                        />
+
+                        <VBox
+                            id="locationVBox"
+                            class="sapUiMediumMargin"
+                        >
+                            <HBox
+                                id="locationHBox"
+                                alignItems="Center"
+                                class="sapUiSmallMarginBottom"
+                            >
+                                <items>
+                                    <core:Icon
+                                        id="locationIcon"
+                                        src="sap-icon://map"
+                                        class="sapUiTinyMarginEnd"
+                                    />
+                                    <Label
+                                        id="locationLabel"
+                                        text="Locatie:"
+                                    />
+                                </items>
+                            </HBox>
+
+                            <Text
+                                id="addressText"
+                                text="{
+                                    parts: [
+                                        {path: 'report>/street'},
+                                        {path: 'report>/house_number'},
+                                        {path: 'report>/postcode'},
+                                        {path: 'report>/city'}
+                                    ],
+                                    formatter: '.formatter.formatAddress'
+                                }"
+                                class="sapUiTinyMarginBottom"
+                                visible="{= !${report>/editMode} }"
+                            />
+
+                            <VBox
+                                id="addressInputVBox"
+                                visible="{= ${report>/editMode} }"
+                                class="sapUiSmallMarginBottom"
+                            >
+                                <Label
+                                    id="detailStreetLabel"
+                                    text="Straat:"
+                                />
+                                <Input
+                                    id="streetInput"
+                                    value="{report>/street}"
+                                    placeholder="Straatnaam"
+                                    class="sapUiTinyMarginBottom"
+                                />
+
+                                <Label
+                                    id="detailHouseNumberLabel"
+                                    text="Huisnummer:"
+                                />
+                                <Input
+                                    id="houseNumberInput"
+                                    value="{report>/house_number}"
+                                    placeholder="Nummer"
+                                    class="sapUiTinyMarginBottom"
+                                />
+
+                                <Label
+                                    id="detailPostcodeLabel"
+                                    text="Postcode:"
+                                />
+                                <Input
+                                    id="postcodeInput"
+                                    value="{report>/postcode}"
+                                    placeholder="9000"
+                                    class="sapUiTinyMarginBottom"
+                                />
+
+                                <Label
+                                    id="detailCityLabel"
+                                    text="Stad:"
+                                />
+                                <Input
+                                    id="cityInput"
+                                    value="{report>/city}"
+                                    placeholder="Gent"
+                                    class="sapUiTinyMarginBottom"
+                                />
+                            </VBox>
+
+                            <HBox
+                                id="coordsHBox"
+                                alignItems="Center"
+                                class="sapUiSmallMarginBottom"
+                            >
+                                <items>
+                                    <core:Icon
+                                        id="coordsIcon"
+                                        src="sap-icon://geographic-bubble"
+                                        class="sapUiTinyMarginEnd"
+                                    />
+                                    <Label
+                                        id="coordsLabel"
+                                        text="Coördinaten:"
+                                    />
+                                </items>
+                            </HBox>
+
+                            <Text
+                                id="coordsText"
+                                text="{= ${report>/latitude} + ', ' + ${report>/longitude} }"
+                                visible="{= !${report>/editMode} }"
+                            />
+
+                            <VBox
+                                id="coordsInputVBox"
+                                visible="{= ${report>/editMode} }"
+                                class="sapUiSmallMarginBottom"
+                            >
+                                <Label
+                                    id="detailLatitudeLabel"
+                                    text="Latitude:"
+                                />
+                                <Input
+                                    id="latitudeInput"
+                                    value="{report>/latitude}"
+                                    placeholder="51.0543"
+                                    class="sapUiTinyMarginBottom"
+                                />
+
+                                <Label
+                                    id="detailLongitudeLabel"
+                                    text="Longitude:"
+                                />
+                                <Input
+                                    id="longitudeInput"
+                                    value="{report>/longitude}"
+                                    placeholder="3.7174"
+                                    class="sapUiTinyMarginBottom"
+                                />
+                            </VBox>
+
+                            <HBox
+                                id="locationTypeHBox"
+                                alignItems="Center"
+                                class="sapUiSmallMarginBottom"
+                            >
+                                <items>
+                                    <core:Icon
+                                        id="locationTypeIcon"
+                                        src="sap-icon://map-2"
+                                        class="sapUiTinyMarginEnd"
+                                    />
+                                    <Label
+                                        id="locationTypeTextLabel"
+                                        text="Locatietype:"
+                                    />
+                                </items>
+                            </HBox>
+
+                            <Text
+                                id="locationTypeText"
+                                text="{report>/locationType/locationType}"
+                                visible="{= !${report>/editMode} }"
+                            />
+
+                            <VBox
+                                id="locationTypeVBox"
+                                class="sapUiSmallMarginBottom"
+                                visible="{= ${report>/editMode} }"
+                            >
+                                <Label
+                                    id="locationTypeLabel"
+                                    text="Locatietype:"
+                                />
+                                <Select
+                                    id="locationTypeSelect"
+                                    selectedKey="{report>/locationType_ID}"
+                                    width="100%"
+                                    items="{
+                                        path: '/LocationTypes',
+                                        sorter: { path: 'locationType' }
+                                    }"
+                                >
+                                    <core:Item
+                                        id="locationTypeItem"
+                                        key="{ID}"
+                                        text="{locationType}"
+                                    />
+                                </Select>
+                            </VBox>
+
+                            <VBox
+                                id="casePriorityVBox"
+                                class="sapUiSmallMarginBottom"
+                                visible="{= ${report>/editMode} }"
+                            >
+                                <Label
+                                    id="casePriorityLabel"
+                                    text="Prioriteit:"
+                                />
+                                <Select
+                                    id="casePrioritySelect"
+                                    selectedKey="{report>/casePriority_ID}"
+                                    width="100%"
+                                    items="{
+                                        path: '/CasePriority',
+                                        sorter: { path: 'casePriority' }
+                                    }"
+                                >
+                                    <core:Item
+                                        id="priorityItem"
+                                        key="{ID}"
+                                        text="{casePriority}"
+                                    />
+                                </Select>
+                            </VBox>
+                        </VBox>
+                    </VBox>
+                </HBox>
+            </l:VerticalLayout>
+        </semantic:content>
+        <semantic:footerCustomActions>
+            <Button
+                id="detailDeleteButton"
+                icon="sap-icon://delete"
+                text="Verwijderen"
+                type="Reject"
+                press=".onDeleteReport"
+                visible="{= ${report>/editMode} }"
+            />
+
+            <Button
+                id="detailEditButton"
+                icon="sap-icon://edit"
+                text="Bewerken"
+                press=".onEditReport"
+                visible="{= !${report>/editMode} }"
+            />
+
+            <Button
+                id="detailSaveButton"
+                icon="sap-icon://save"
+                text="{= ${report>/isNew} ? 'Melding aanmaken' : 'Opslaan' }"
+                type="Emphasized"
+                press=".onSaveReport"
+                visible="{= ${report>/editMode} }"
+                class="sapUiTinyMarginEnd"
+            />
+
+            <Button
+                id="detailCancelButton"
+                icon="sap-icon://decline"
+                text="Annuleren"
+                press=".onCancelEdit"
+                visible="{= ${report>/editMode} }"
+            />
+        </semantic:footerCustomActions>
+    </semantic:SemanticPage>
+</mvc:View>
