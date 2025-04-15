@@ -30,6 +30,19 @@
         "vcap": {
           "name": "waste-app-malware"
         }
+      },
+      "custom-service:waste-app-ai-core": {
+        "binding": {
+          "type": "cf",
+          "apiEndpoint": "https://api.cf.eu20-001.hana.ondemand.com",
+          "org": "expertum-saas-poc-ray-ai",
+          "space": "waste-app",
+          "instance": "waste-app-ai-core",
+          "key": "waste-app-ai-core-key"
+        },
+        "vcap": {
+          "name": "custom-service:waste-app-ai-core"
+        }
       }
     }
   }
