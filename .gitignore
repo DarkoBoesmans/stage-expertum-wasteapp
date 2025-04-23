@@ -4,9 +4,13 @@ node_modules/
 *.log
 dist/
 build/
+waste_app_ai_core_key.json
 
 # added by cds
 .cdsrc-private.json
 
 # added by cds
 .cdsrc-private.json
+
+# Python virtual environment
+sap_cv_env/
