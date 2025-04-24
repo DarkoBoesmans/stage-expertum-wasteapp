@@ -103,16 +103,40 @@ transition: slide-left
 
 <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
   <div class="text-center max-w-2xl">
-    <p class="quote-text text-3xl font-italic">
+    <blockquote class="text-3xl italic leading-relaxed">
       "I believe that at the end of the century the use of words and general educated opinion will have altered so much that one will be able to speak of machines thinking without expecting to be contradicted."
-    </p>
-    <p class="mt-4 text-xl">- Alan Turing</p>
+      <footer class="mt-4 text-xl">- Alan Turing</footer>
+    </blockquote>
   </div>
 </div>
 
 <style>
-.quote-text {
-  line-height: 1.25;
+blockquote {
+  line-height: 1.8;
+  position: relative;
+  padding: 0 2rem;
+}
+
+blockquote::before,
+blockquote::after {
+  content: '"';
+  font-size: 3rem;
+  position: absolute;
+  opacity: 0.3;
+}
+
+blockquote::before {
+  top: -1rem;
+  left: -1rem;
+}
+
+blockquote::after {
+  bottom: -3rem;
+  right: -1rem;
+}
+
+blockquote footer {
+  text-align: right;
 }
 </style>
 
@@ -120,6 +144,8 @@ transition: slide-left
 layout: center
 class: text-center
 ---
+
+# De AI Piramide
 
 ```mermaid {scale: .9, theme: 'dark'}
 flowchart TD
@@ -145,45 +171,173 @@ flowchart TD
 
 ---
 layout: default
-transition: slide-up
----
-
-# Limitations van AI
-
-<div class="grid grid-cols-2 gap-6">
-  <div>
-
-  ## Technische Beperkingen
-
-  - **Interpretatieprobleem**: Moeite met context begrijpen 
-  - **Hallucinations**: Genereren van onjuiste informatie
-  - **Bias en Fairness**: Vooroordelen uit trainingsdata
-  - **Zwarte doos**: Moeilijk te verklaren besluitvorming
-
-  </div>
-
-  <div>
-
-  ## Praktische Uitdagingen
-
-  - **Datahonger**: Behoefte aan grote hoeveelheden data
-  - **Computationele kosten**: Hoge hardware-vereisten
-  - **Generalisatie**: Moeite met nieuwe, onbekende situaties
-  - **Menselijke interactie**: Mist empathie en sociale intelligentie
-
-  </div>
-</div>
-
-<div class="mt-8 border-t pt-4 text-center">
-  <p class="italic">"AI is uitstekend in het detecteren van patronen in data, maar heeft moeite met het begrijpen van de wereld zoals mensen dat doen."</p>
-</div>
-
----
-layout: section
 transition: slide-left
 ---
 
+# Limitations van Generatieve AI
+
+<div class="grid grid-cols-2 gap-6">
+<div>
+
+## Hallucinations
+- AI genereert plausibele maar onjuiste informatie
+- Voorbeeld: ChatGPT maakt foutieve samenvatting van een boek
+
+```text
+Prompt: Maak een korte samenvatting van het boek 
+'Het verdriet van België' door Louis-Paul Boon.
+
+ChatGPT 3.5: "Het verdriet van België" ("The Sorrow 
+of Belgium") door Louis-Paul Boon is een 
+semi-autobiografische roman...
+```
+
+- **Belangrijk**: Foundation Models weten niets, ze berekenen alleen waarschijnlijkheden
+
+</div>
+<div>
+
+## Kennisbeperkingen
+- Kennis bevroren op trainingsmoment
+- Geen besef van actualiteit na trainingsdatum
+
+```text
+Prompt: Ik wil The Crooked House bezoeken, een 
+historische 18e-eeuwse pub in Staffordshire. 
+Wat moet ik weten?
+
+ChatGPT 3.5: Een bezoek aan The Crooked House 
+klinkt fantastisch! Hier is wat je moet weten: ...
+```
+
+- The Crooked House brandde af in 2023, maar ChatGPT 3.5 werd getraind tot januari 2022
+
+</div>
+</div>
+
+---
+layout: default
+transition: slide-left
+---
+
+# Meer Beperkingen van AI
+
+<div class="grid grid-cols-2 gap-6">
+<div>
+
+## Inconsistente Wiskundige Vaardigheden
+- Moeite met eenvoudige berekeningen
+- Verwarrende tijdsperceptie
+
+```text
+Prompt: Geef een woord met precies 3 b's, 2 a's en een e.
+
+ChatGPT 3.5: Het woord "beanbag" voldoet aan je criteria: 
+het heeft 3 b's, 2 a's en een e.
+```
+
+```text
+Prompt: Wat gebeurde eerder: het zinken van The Herald 
+of Free Enterprise of het 'Heizeldrama'?
+
+ChatGPT 3.5: Het zinken van de Herald of Free Enterprise 
+vond plaats op 6 maart 1987, terwijl het Heizeldrama 
+plaatsvond op 29 mei 1985.
+```
+
+</div>
+<div>
+
+## Sterk in Standaardproblemen
+- Goed in het oplossen van bekende vraagstukken
+- Volgt aangeleerde methodieken
+
+```text
+Prompt: Twee auto's rijden noordwaarts. De eerste rijdt 
+40 km/u, de tweede vertrekt 3 uur later en rijdt 60 km/u. 
+Hoe lang na het vertrek van de tweede auto haalt deze 
+de eerste in?
+
+Bing Copilot: 
+Laat T de tijd voorstellen die de eerste auto rijdt.
+De tweede auto start 3 uur later, dus zijn tijd is (T - 3).
+Afstand eerste auto: 40T kilometer.
+Afstand tweede auto: 60(T - 3) kilometer.
+40T = 60(T - 3)
+40T = 60T - 180
+-20T = -180
+T = 9
+Antwoord: 6 uur na vertrek tweede auto.
+```
+
+</div>
+</div>
+
+---
+layout: image-right
+image: https://images.unsplash.com/photo-1633409361618-c73427e4e206?q=80&w=1000&auto=format&fit=crop
+transition: slide-left
+---
+
+# Prompt Engineering
+
+- De kunst van het formuleren van effectieve prompts
+- Essentiële vaardigheid voor optimaal AI-gebruik
+- Structuur, context en specificiteit zijn cruciaal
+
+## Belangrijke Technieken
+- **Chain-of-Thought**: leid het model door complexe redeneringen
+- **Few-Shot Learning**: geef voorbeelden in de prompt
+- **System Prompts**: stel de rol en gedrag van de AI in
+- **Temperature-instelling**: controle over creativiteit vs precisie
+
+---
+layout: image-left
+image: https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1000&auto=format&fit=crop
+transition: slide-left
+---
+
+# Retrieval Augmented Generation (RAG)
+
+- Combineert LLMs met externe kennisbronnen
+- Vermindert hallucinaties
+- Houdt informatie up-to-date
+
+## Werking
+1. **Embeddings**: vectorrepresentaties van tekst
+2. **Retrieval**: zoek relevante informatie in kennisbank
+3. **Generation**: antwoord genereren met gevonden context
+4. **Orchestration**: het hele proces beheren
+
+## Voordelen voor SAP
+- Integratie met bedrijfsspecifieke data
+- Nauwkeurigere en betrouwbaardere antwoorden
+- Verminderd risico op foutieve informatie
+
+---
+layout: section
+transition: slide-up
+---
+
 # AI binnen SAP
+
+<div class="flex justify-center">
+  <div class="text-center max-w-2xl">
+    <p class="text-xl mt-4 opacity-80">
+      Van intelligent ERP naar intelligente onderneming
+    </p>
+  </div>
+</div>
+
+<style>
+h1 {
+  background-image: linear-gradient(45deg, #5A32C8, #C6B6FF);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 3rem !important;
+}
+</style>
 
 ---
 layout: default
@@ -275,550 +429,463 @@ transition: slide-left
 </div>
 </div>
 
-
-
 ---
-transition: fade-out
----
-
-# What is Slidev?
-
-Slidev is a slides maker and presenter designed for developers, consist of the following features
-
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - themes can be shared and re-used as npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embed Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export to PDF, PPTX, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - virtually anything that's possible on a webpage is possible in Slidev
-<br>
-<br>
-
-Read more about [Why Slidev?](https://sli.dev/guide/why)
-
----
-transition: slide-up
-level: 2
+layout: default
+transition: slide-left
 ---
 
-# Navigation
+# Orchestration Tools: "Agents"
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/ui#navigation-bar)
+<div class="grid grid-cols-2 gap-6">
+<div>
 
-## Keyboard Shortcuts
+## Wat zijn AI Agents?
+- Autonome AI-systemen die taken uitvoeren
+- Kunnen beslissingen nemen en acties ondernemen
+- Aaneenschakeling van verschillende AI-modellen
+- Interactie met externe systemen en APIs
 
-|                                                     |                             |
-| --------------------------------------------------- | --------------------------- |
-| <kbd>right</kbd> / <kbd>space</kbd>                 | next animation or slide     |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd>                                       | previous slide              |
-| <kbd>down</kbd>                                     | next slide                  |
+## Agent Frameworks
+- **LangChain**: flexibel framework voor AI-workflows
+- **AutoGPT**: zelfstandige, doelgerichte agents
+- **BabyAGI**: taakbeheer en prioritering
 
-<!-- https://sli.dev/guide/animations.html#click-animation -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-  alt=""
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
+</div>
+<div>
 
+## Toepassingen in SAP
+- **Procesautomatisering**: complexe workflows automatiseren
+- **Beslissingsondersteuning**: data-analyse en aanbevelingen
+- **Anomaliedetectie**: proactieve controle en melding
+- **Klantenservice**: geautomatiseerde probleemoplossing
+
+## Uitdagingen
+- Betrouwbaarheid en consistentie
+- Security en toegangscontrole
+- Menselijke supervisie
+- Ethische overwegingen
+
+</div>
+</div>
 
 ---
 layout: image-right
-image: https://cover.sli.dev
+image: https://www.sap.com/content/dam/marketing/commerce/images/joule/joule-purple-chip-1216x684.jpg/_jcr_content/renditions/original.transform/dam-image-tablet/joule-purple-chip-1216x684.jpg
+transition: slide-left
 ---
 
-# Code
+# SAP Copilot Joule
 
-Use code snippets and get the highlighting directly, and even types hover!
+SAP's AI-assistent die natuurlijke taal gebruikt om SAP-systemen toegankelijker te maken.
 
-```ts {all|5|7|7-8|10|all} twoslash
-// TwoSlash enables TypeScript hover information
-// and errors in markdown code blocks
-// More at https://shiki.style/packages/twoslash
+## Kernfunctionaliteiten
+- **Conversatie-interface** voor SAP-toepassingen
+- **Contextbewuste** ondersteuning en analyses
+- **Multi-modale interactie**: tekst, spraak, afbeeldingen
+- **Workflow-automatisering** en procesversnelling
 
-import { computed, ref } from 'vue'
+## Integratie
+- S/4HANA, SAP SuccessFactors, SAP Customer Experience
+- SAP Business Technology Platform
+- Verbinding met externe AI-diensten via SAP AI Core
 
-const count = ref(0)
-const doubled = computed(() => count.value * 2)
+---
+layout: image-left
+image: https://www.sap.com/dam/application/shared/images/images/sapcom-page-banner-70-30.jpg
+transition: slide-left
+---
 
-doubled.value = 2
-```
+# Just Ask & Document Processing
 
-<arrow v-click="[4, 5]" x1="350" y1="310" x2="195" y2="334" color="#953" width="2" arrowSize="1" />
+## Natuurlijke Taal Verwerking
+- Documenten begrijpen en interpreteren
+- Automatische extractie van informatie
+- Intelligente classificatie en verwerking
 
-<!-- This allow you to embed external code blocks -->
-<<< @/snippets/external.ts#snippet
+## Voordelen
+- **Tijdsbesparing**: automatisering van handmatige processen
+- **Nauwkeurigheid**: vermindering van verwerkingsfouten
+- **Schaalbaarheid**: verwerking van grote documentvolumes
+- **Inzicht**: betere data-extractie voor besluitvorming
 
-<!-- Footer -->
+## Use Cases
+- Factuurverwerking
+- Contractanalyse
+- Compliance-documentatie
+- Klantcorrespondentie
 
-[Learn more](https://sli.dev/features/line-highlighting)
+---
+layout: default
+transition: slide-left
+---
 
-<!-- Inline style -->
+# Domains voor Use Cases
+
+<div class="grid grid-cols-3 gap-6">
+<div class="bg-gradient-to-br from-[#7B5DC7] to-[#9F89D7] p-6 rounded-lg text-white">
+  <h3 class="text-xl mb-2">Finance & Accounting</h3>
+  <ul class="space-y-2 opacity-90">
+    <li>Automatische factuurverwerking</li>
+    <li>Fraude-detectie met ML</li>
+    <li>Cash flow-voorspellingen</li>
+    <li>Uitgavenanalyse en -optimalisatie</li>
+  </ul>
+</div>
+
+<div class="bg-gradient-to-br from-[#5A32C8] to-[#7B5DC7] p-6 rounded-lg text-white">
+  <h3 class="text-xl mb-2">Supply Chain</h3>
+  <ul class="space-y-2 opacity-90">
+    <li>Vraagvoorspelling</li>
+    <li>Inventarisoptimalisatie</li>
+    <li>Logistieke routeplanning</li>
+    <li>Leveranciersevaluatie</li>
+  </ul>
+</div>
+
+<div class="bg-gradient-to-br from-[#9F89D7] to-[#C6B6FF] p-6 rounded-lg text-white">
+  <h3 class="text-xl mb-2">Human Resources</h3>
+  <ul class="space-y-2 opacity-90">
+    <li>Intelligente werving en selectie</li>
+    <li>Employee engagement analyse</li>
+    <li>Gepersonaliseerde training</li>
+    <li>Werkbelastingbeheer</li>
+  </ul>
+</div>
+</div>
+
+<div class="mt-8 grid grid-cols-2 gap-6">
+<div class="bg-gradient-to-br from-[#4A2BA8] to-[#5A32C8] p-6 rounded-lg text-white">
+  <h3 class="text-xl mb-2">Sales & Marketing</h3>
+  <ul class="space-y-2 opacity-90">
+    <li>Klantgedraganalyse</li>
+    <li>Gepersonaliseerde marketing</li>
+    <li>Verkoopkansvoorspelling</li>
+    <li>Sentimentanalyse</li>
+  </ul>
+</div>
+
+<div class="bg-gradient-to-br from-[#C6B6FF] to-[#9F89D7] p-6 rounded-lg text-white">
+  <h3 class="text-xl mb-2">IT & Development</h3>
+  <ul class="space-y-2 opacity-90">
+    <li>Codeanalyse en -suggesties</li>
+    <li>Automatische testgeneratie</li>
+    <li>Incident response-automatisering</li>
+    <li>Infrastructuuroptimalisatie</li>
+  </ul>
+</div>
+</div>
+
+---
+layout: image-right
+image: https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1000&auto=format&fit=crop
+transition: slide-left
+---
+
+# Ethische & Sociale Aspecten van AI
+
+## Kernuitdagingen
+- **Bias & Fairness**: oneerlijke vooroordelen tegengaan
+- **Transparantie**: begrijpelijke AI-besluitvorming
+- **Privacy**: bescherming van persoonlijke gegevens
+- **Verantwoordelijkheid**: wie is aansprakelijk?
+
+## SAP's Aanpak
+- **Ethische richtlijnen** voor AI-ontwikkeling
+- **Diverse trainingsdatasets** om bias te verminderen
+- **Explainable AI** voor transparantie
+- **Data governance** en privacybescherming
+
+## Toekomstperspectief
+- Balans tussen innovatie en ethische overwegingen
+- Mensgerichte AI-ontwikkeling
+- Samenwerking met stakeholders
+- Aanpassingsvermogen aan evoluerende normen
+
+---
+layout: section
+transition: slide-up
+---
+
+# AI binnen IVAGO Waste-App
+
+<div class="flex justify-center">
+  <div class="text-center max-w-2xl">
+    <p class="text-xl mt-4 opacity-80">
+      Computer Vision voor afvalherkenning
+    </p>
+  </div>
+</div>
+
 <style>
-.footnotes-sep {
-  @apply mt-5 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
+h1 {
+  background-image: linear-gradient(45deg, #5A32C8, #C6B6FF);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 3rem !important;
 }
 </style>
 
-<!--
-Notes can also sync with clicks
-
-[click] This will be highlighted after the first click
-
-[click] Highlighted with `count = ref(0)`
-
-[click:3] Last click (skip two clicks)
--->
-
 ---
-level: 2
+layout: default
+transition: slide-left
 ---
 
-# Shiki Magic Move
+# Computer Vision voor Afvalherkenning
 
-Powered by [shiki-magic-move](https://shiki-magic-move.netlify.app/), Slidev supports animations across multiple code snippets.
-
-Add multiple code blocks and wrap them with <code>````md magic-move</code> (four backticks) to enable the magic move. For example:
-
-````md magic-move {lines: true}
-```ts {*|2|*}
-// step 1
-const author = reactive({
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-})
-```
-
-```ts {*|1-2|3-4|3-4,8}
-// step 2
-export default {
-  data() {
-    return {
-      author: {
-        name: 'John Doe',
-        books: [
-          'Vue 2 - Advanced Guide',
-          'Vue 3 - Basic Guide',
-          'Vue 4 - The Mystery'
-        ]
-      }
-    }
-  }
-}
-```
-
-```ts
-// step 3
-export default {
-  data: () => ({
-    author: {
-      name: 'John Doe',
-      books: [
-        'Vue 2 - Advanced Guide',
-        'Vue 3 - Basic Guide',
-        'Vue 4 - The Mystery'
-      ]
-    }
-  })
-}
-```
-
-Non-code blocks are ignored.
-
-```vue
-<!-- step 4 -->
-<script setup>
-const author = {
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-}
-</script>
-```
-````
-
----
-
-# Components
-
-<div grid="~ cols-2 gap-4">
+<div class="grid grid-cols-2 gap-6">
 <div>
 
-You can use Vue components directly inside your slides.
+## Project Overzicht
+- **Doel**: Automatisch herkennen van afvaltypes en sluikstort
+- **Technologie**: SAP AI Core met Computer Vision Package
+- **Dataset**: Getraind op afbeeldingen van verschillende afvaltypes
+- **Integratie**: Verbonden met IVAGO's rapportage- en opvolgingssysteem
 
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
+## Workflow
+1. Foto maken van afval/sluikstort
+2. Automatische analyse door CV model
+3. Classificatie van afvaltype
+4. Suggestie van gepaste opvolgingsactie
+5. Rapportage aan juiste afdeling
 
 </div>
 <div>
 
-```html
-<Tweet id="1390115482657726468" />
+## Technische Implementatie
+- SAP AI Core voor modelhosting
+- SAP HANA Cloud als data-opslag
+- UI5-applicatie voor gebruikersinterface
+- CAP (Cloud Application Programming) voor backend
+
+<div class="bg-gradient-to-br from-[#5A32C8] to-[#9F89D7] p-4 rounded-lg text-white mt-4">
+  <h3 class="text-lg mb-2">Voordelen</h3>
+  <ul class="space-y-1 opacity-90">
+    <li>⏱️ Snellere verwerking van meldingen</li>
+    <li>🎯 Accurate classificatie (>90% nauwkeurigheid)</li>
+    <li>📊 Betere data voor trendanalyse</li>
+    <li>🔄 Automatisering van routinetaken</li>
+  </ul>
+</div>
+
+</div>
+</div>
+
+---
+layout: image-right
+image: /assets/todo/8R1Q9XR5ASGS90L25VDY6TRB.jpg
+class: 'text-white'
+transition: slide-left
+---
+
+# Demo: Afvalherkenning
+
+## Model Training & Performance
+
+- Getraind op **2000+ afbeeldingen** van sluikstort
+- Onderscheidt **8 verschillende afvaltypes**:
+  - Huishoudelijk afval
+  - Bouwafval
+  - Groenafval
+  - Elektronisch afval
+  - Plastic
+  - Meubels
+  - Gevaarlijk afval
+  - Gemengd afval
+
+## Uitdagingen
+- Variabele lichtomstandigheden
+- Gedeeltelijk zichtbaar afval
+- Meerdere afvaltypes in één beeld
+- Seizoensgebonden variaties
+
+---
+layout: default
+transition: slide-left
+---
+
+# Technische Architectuur
+
+<div class="grid grid-cols-2 gap-6">
+<div>
+
+## Frontend Components
+- **UI5 Framework** voor gebruikersinterface
+- **Camera API** voor afbeeldingscapture
+- **Report Service** voor meldingsbeheer
+- **Location Service** voor geo-tagging
+
+```typescript
+// Voorbeeld: AttachmentService
+export class AttachmentService {
+  async uploadImage(file: File): Promise<string> {
+    // Stuurt afbeelding naar backend voor analyse
+    const formData = new FormData();
+    formData.append('file', file);
+    
+    const response = await fetch('/api/upload', {
+      method: 'POST',
+      body: formData
+    });
+    
+    return response.json();
+  }
+  
+  // ...bestaande code...
+}
 ```
 
-<Tweet id="1390115482657726468" scale="0.65" />
-
 </div>
-</div>
+<div>
 
-<!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
+## Backend Components
+- **CAP Service** voor API-endpoints
+- **AI Core Connector** voor modelintegratie
+- **HANA Persistence** voor dataopslag
 
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
--->
+```javascript
+// Voorbeeld: Computer Vision integratie in service.js
+const cds = require('@sap/cds');
+const aiCore = require('@sap/ai-core-sdk');
 
----
-class: px-20
----
-
-# Themes
-
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/guide/theme-addon#use-theme) and
-check out the [Awesome Themes Gallery](https://sli.dev/resources/theme-gallery).
-
----
-
-# Clicks Animations
-
-You can add `v-click` to elements to add a click animation.
-
-<div v-click>
-
-This shows up when you click the slide:
-
-```html
-<div v-click>This shows up when you click the slide.</div>
+module.exports = cds.service.impl(async function() {
+  this.on('analyzeImage', async(req) => {
+    const { imageId } = req.data;
+    
+    // Haal de image data op
+    const image = await SELECT.one.from('Images')
+      .where({ ID: imageId });
+    
+    // Stuur naar AI Core voor analyse
+    const prediction = await aiCore.predict({
+      deploymentId: 'waste-recognition-model',
+      data: image.content
+    });
+    
+    // Verwerk resultaten
+    return transformPrediction(prediction);
+  });
+});
 ```
 
 </div>
-
-<br>
-
-<v-click>
-
-The <span v-mark.red="3"><code>v-mark</code> directive</span>
-also allows you to add
-<span v-mark.circle.orange="4">inline marks</span>
-, powered by [Rough Notation](https://roughnotation.com/):
-
-```html
-<span v-mark.underline.orange>inline markers</span>
-```
-
-</v-click>
-
-<div mt-20 v-click>
-
-[Learn more](https://sli.dev/guide/animations#click-animation)
-
 </div>
 
 ---
+layout: section
+transition: slide-up
+---
 
-# Motions
+# Chat AI Tool: Collega Project
 
-Motion animations are powered by [@vueuse/motion](https://motion.vueuse.org/), triggered by `v-motion` directive.
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }"
-  :click-3="{ x: 80 }"
-  :leave="{ x: 1000 }"
->
-  Slidev
-</div>
-```
-
-<div class="w-60 relative">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-square.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-circle.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-triangle.png"
-      alt=""
-    />
-  </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
+<div class="flex justify-center">
+  <div class="text-center max-w-2xl">
+    <p class="text-xl mt-4 opacity-80">
+      Intelligente assistentie voor klantenservice
+    </p>
   </div>
 </div>
 
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
+<style>
+h1 {
+  background-image: linear-gradient(45deg, #5A32C8, #C6B6FF);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 3rem !important;
 }
-</script>
+</style>
 
-<div
-  v-motion
-  :initial="{ x:35, y: 30, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
+---
+layout: default
+transition: slide-left
+---
 
-[Learn more](https://sli.dev/guide/animations.html#motion)
+# Klantenservice Chat AI
 
+<div class="grid grid-cols-2 gap-6">
+<div>
+
+## Project Overzicht
+- **Doel**: Automatiseren & ondersteunen van klantgesprekken
+- **Technologie**: SAP Conversational AI + GPT-integratie
+- **Toepassing**: Eerste-lijn support en FAQ's
+- **Integratie**: Met IVAGO's klantendatabase
+
+## Kernfunctionaliteiten
+- **Meertalige ondersteuning** (NL, FR, EN)
+- **Contextbewuste antwoorden**
+- **Afvalophaling informatie** (schema's, locaties)
+- **Doorverwijzing** naar menselijke agenten indien nodig
+- **Integratie** met ticketing-systeem
+
+</div>
+<div>
+
+## Voordelen & Resultaten
+<div class="bg-gradient-to-br from-[#5A32C8] to-[#9F89D7] p-4 rounded-lg text-white mb-4">
+  <h3 class="text-lg mb-2">Business Impact</h3>
+  <ul class="space-y-1 opacity-90">
+    <li>⬇️ 40% reductie in wachttijd</li>
+    <li>⬆️ 24/7 beschikbaarheid</li>
+    <li>🔍 Consistente antwoorden</li>
+    <li>📊 Verbeterde data-inzichten</li>
+  </ul>
+</div>
+
+## Technische Implementatie
+- **Intent Recognition**: voor gebruikersbedoelingen
+- **Entity Extraction**: voor datapunten zoals adressen
+- **Dialog Management**: voor natuurlijke gesprekken
+- **Knowledge Base**: voor accurate antwoorden
+- **SAP BTP**: als cloud-infrastructuur
+
+</div>
 </div>
 
 ---
-
-# LaTeX
-
-LaTeX is supported out-of-box. Powered by [KaTeX](https://katex.org/).
-
-<div h-3 />
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$ {1|3|all}
-\begin{aligned}
-\nabla \cdot \vec{E} &= \frac{\rho}{\varepsilon_0} \\
-\nabla \cdot \vec{B} &= 0 \\
-\nabla \times \vec{E} &= -\frac{\partial\vec{B}}{\partial t} \\
-\nabla \times \vec{B} &= \mu_0\vec{J} + \mu_0\varepsilon_0\frac{\partial\vec{E}}{\partial t}
-\end{aligned}
-$$
-
-[Learn more](https://sli.dev/features/latex)
-
+layout: center
+class: 'text-center'
 ---
 
-# Diagrams
+# Toekomstperspectief en Samenvatting
 
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
-
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectiveness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
-
-</div>
-
-Learn more: [Mermaid Diagrams](https://sli.dev/features/mermaid) and [PlantUML Diagrams](https://sli.dev/features/plantuml)
-
----
-foo: bar
-dragPos:
-  square: 657,37,167,_,-16
----
-
-# Draggable Elements
-
-Double-click on the draggable elements to edit their positions.
-
-<br>
-
-###### Directive Usage
-
-```md
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-```
-
-<br>
-
-###### Component Usage
-
-```md
-<v-drag text-3xl>
-  <div class="i-carbon:arrow-up" />
-  Use the `v-drag` component to have a draggable container!
-</v-drag>
-```
-
-<v-drag pos="300,332,261,_,-15">
-  <div text-center text-3xl border border-main rounded>
-    Double-click me!
+<div class="grid grid-cols-2 gap-x-12 gap-y-6 mt-10">
+  <div class="bg-gradient-to-br from-[#5A32C8]/10 to-[#9F89D7]/10 p-6 rounded-lg backdrop-blur-sm">
+    <h3 class="text-xl font-bold text-[#5A32C8] mb-2">Waste App</h3>
+    <ul class="text-left space-y-2">
+      <li>🔮 Uitbreiding naar meerdere afvaltypes</li>
+      <li>🔮 Realtime monitoring via drones/camera's</li>
+      <li>🔮 Predictieve analyses voor proactieve inzet</li>
+    </ul>
   </div>
-</v-drag>
-
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-
-###### Draggable Arrow
-
-```md
-<v-drag-arrow two-way />
-```
-
-<v-drag-arrow pos="450,176,253,46" two-way op70 />
-
----
-src: ./pages/imported-slides.md
-hide: false
----
-
----
-
-# Monaco Editor
-
-Slidev provides built-in Monaco Editor support.
-
-Add `{monaco}` to the code block to turn it into an editor:
-
-```ts {monaco}
-import { ref } from 'vue'
-import { emptyArray } from './external'
-
-const arr = ref(emptyArray(10))
-```
-
-Use `{monaco-run}` to create an editor that can execute the code directly in the slide:
-
-```ts {monaco-run}
-import { version } from 'vue'
-import { emptyArray, sayHello } from './external'
-
-sayHello()
-console.log(`vue ${version}`)
-console.log(emptyArray<number>(10).reduce(fib => [...fib, fib.at(-1)! + fib.at(-2)!], [1, 1]))
-```
+  
+  <div class="bg-gradient-to-br from-[#5A32C8]/10 to-[#9F89D7]/10 p-6 rounded-lg backdrop-blur-sm">
+    <h3 class="text-xl font-bold text-[#5A32C8] mb-2">Chat Tool</h3>
+    <ul class="text-left space-y-2">
+      <li>🔮 Multimodale interactie (spraak, beeld)</li>
+      <li>🔮 Persoonlijkere gebruikerservaringen</li>
+      <li>🔮 Integratie met waste app voor end-to-end service</li>
+    </ul>
+  </div>
+  
+  <div class="col-span-2 bg-gradient-to-br from-[#5A32C8]/10 to-[#9F89D7]/10 p-6 rounded-lg backdrop-blur-sm">
+    <h3 class="text-xl font-bold text-[#5A32C8] mb-2">Conclusie</h3>
+    <p class="text-left">AI transformeert afvalbeheer door intelligente herkenning, efficiënte verwerking en verbeterde klantenservice. De combinatie van computer vision en natuurlijke taalverwerking biedt IVAGO krachtige tools om duurzaamheid te bevorderen en operationele efficiëntie te verhogen.</p>
+  </div>
+</div>
 
 ---
 layout: center
 class: text-center
 ---
 
-# Learn More
+# Vragen?
 
-[Documentation](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/resources/showcases)
-
-<PoweredBySlidev mt-10 />
+<div class="flex justify-center">
+  <div class="text-center max-w-2xl">
+    <p class="text-xl mt-4 opacity-80">
+      Bedankt voor jullie aandacht!
+    </p>
+  </div>
+</div>
