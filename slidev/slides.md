@@ -1,50 +1,281 @@
 ---
-# You can also start simply with 'default'
+# Layout
 theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-background: https://cover.sli.dev
-# some information about your slides (markdown enabled)
-title: Welcome to Slidev
-info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
+colorSchema: "dark"
+background: "#19EB96"
+favicon: "./theme-expertum/favicon-32x32-Expertum.png"
+fonts:
+  # Text
+  sans: "Sora Light"
+  # Code
+  mono: "Victor Mono"
+highlighter: shiki
+lineNumbers: false
 
-  Learn more at [Sli.dev](https://sli.dev)
-# apply unocss classes to the current slide
+# Metadata
+title: Artificiële Intelligentie
+author: Darko Boesmans & Lazhar Rezkallah
+info: |
+  ## Artificiële Intelligentie
+  Artificiële Intelligentie binnen SAP
+
+# Extra
 class: text-center
-# https://sli.dev/features/drawing
 drawings:
   persist: false
-# slide transition: https://sli.dev/guide/animations.html#slide-transitions
 transition: slide-left
-# enable MDC Syntax: https://sli.dev/features/mdc
 mdc: true
-# open graph
-# seoMeta:
-#  ogImage: https://cover.sli.dev
+layout: cover
+hideInToc: true
 ---
 
-# Welcome to Slidev
+<style>
+img {
+  display: block;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-Presentation slides for developers
+.presentation-title {
+  color: #ffffff;
+  font-weight: bold;
+}
+</style>
 
-<div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
-  Press Space for next page <carbon:arrow-right />
+# <CENTER>![Expertum Logo](/theme-expertum/Expertum_Logo_white_rgb.png)</CENTER>
+
+<div class="mt-5">
+  Artificiële Intelligentie binnen SAP
 </div>
 
-<div class="abs-br m-6 text-xl">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="slidev-icon-btn">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" class="slidev-icon-btn">
-    <carbon:logo-github />
-  </a>
+---
+hideInToc: true
+transition: slide-left
+---
+
+# Table of contents
+
+<Toc maxDepth="1"></Toc>
+
+
+---
+layout: two-cols-header
+transition: slide-left
+---
+
+# Wat is AI?
+
+- "Intelligence: het vermogen om complexe doelen te bereiken" (Max Tegmark, Life 3.0)
+- "Artificiële Intelligentie: intelligentie vertoond door niet-biologische systemen"
+
+::left::
+
+## Weak AI (Narrow AI)
+- Vermogen om een beperkte set doelen te bereiken  
+- *Voorbeeld: IBM's Deep Blue (1997)*
+
+::right::
+
+## Strong AI (AGI)
+- Vermogen om elke intellectuele taak te begrijpen die een mens kan  
+- *"Sparks of AGI: Early experiments with GPT-4"*
+
+---
+layout: image-right
+image: https://www.elcorreo.com/xlsemanal/wp-content/uploads/sites/5/2023/04/alan-turing-inventor-informatica-espia-codigo-enigma-segunda-guerra-mundial.jpg
+transition: slide-left
+---
+
+# Alan Turing (1912-1954)
+
+- 🧠 Universele Turing Machine (UTM)
+- 🔐 Ontcijferde de Enigma-code (WOII)
+- ⚠️ Bewees het halting problem
+- 🤖 Uitvinder van de Turing Test
+
+---
+layout: image
+image: https://images.nemokennislink.nl/uploads/02_alan_turing_large.jpg
+backgroundSize: cover
+transition: slide-left
+---
+
+<div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+  <div class="text-center max-w-2xl">
+    <p class="quote-text text-3xl font-italic">
+      "I believe that at the end of the century the use of words and general educated opinion will have altered so much that one will be able to speak of machines thinking without expecting to be contradicted."
+    </p>
+    <p class="mt-4 text-xl">- Alan Turing</p>
+  </div>
 </div>
 
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
+<style>
+.quote-text {
+  line-height: 1.25;
+}
+</style>
+
+---
+layout: center
+class: text-center
+---
+
+```mermaid {scale: .9, theme: 'dark'}
+flowchart TD
+    A["🤖 Artificiële Intelligentie (AI)"] --> B["📊 Machine Learning"]
+    B --> C["🧠 Deep Learning"]
+    C --> D["✨ Foundation Models & Generatieve AI"]
+    
+    A1["Machines die intelligent gedrag vertonen"] --- A
+    B1["Leren van data zonder expliciete programmering"] --- B
+    C1["Neurale netwerken met meerdere lagen"] --- C
+    D1["ChatGPT, DALL-E, enz."] --- D
+    
+    style A fill:#C6B6FF,stroke:#9F89D7,color:black
+    style B fill:#9F89D7,stroke:#7B5DC7,color:black
+    style C fill:#7B5DC7,stroke:#5A32C8,color:white
+    style D fill:#5A32C8,stroke:#4A2BA8,color:white
+    
+    style A1 fill:none,stroke:none,color:white
+    style B1 fill:none,stroke:none,color:white
+    style C1 fill:none,stroke:none,color:white
+    style D1 fill:none,stroke:none,color:white
+```
+
+---
+layout: default
+transition: slide-up
+---
+
+# Limitations van AI
+
+<div class="grid grid-cols-2 gap-6">
+  <div>
+
+  ## Technische Beperkingen
+
+  - **Interpretatieprobleem**: Moeite met context begrijpen 
+  - **Hallucinations**: Genereren van onjuiste informatie
+  - **Bias en Fairness**: Vooroordelen uit trainingsdata
+  - **Zwarte doos**: Moeilijk te verklaren besluitvorming
+
+  </div>
+
+  <div>
+
+  ## Praktische Uitdagingen
+
+  - **Datahonger**: Behoefte aan grote hoeveelheden data
+  - **Computationele kosten**: Hoge hardware-vereisten
+  - **Generalisatie**: Moeite met nieuwe, onbekende situaties
+  - **Menselijke interactie**: Mist empathie en sociale intelligentie
+
+  </div>
+</div>
+
+<div class="mt-8 border-t pt-4 text-center">
+  <p class="italic">"AI is uitstekend in het detecteren van patronen in data, maar heeft moeite met het begrijpen van de wereld zoals mensen dat doen."</p>
+</div>
+
+---
+layout: section
+transition: slide-left
+---
+
+# AI binnen SAP
+
+---
+layout: default
+transition: slide-left
+---
+
+# AI Toepassingen binnen SAP
+
+<div class="grid grid-cols-2 gap-6">
+<div>
+
+## SAP AI Core
+
+- **Platform** voor ontwikkeling en beheer van AI-modellen
+- **Schaalbaarheid** met containerization (Kubernetes)
+- **Integratie** met bestaande SAP-oplossingen
+- **Governance** met versioning en monitoring
+
+</div>
+<div>
+
+## SAP AI Launchpad
+
+- **Centrale hub** voor AI-projecten en modellen
+- **Monitoring** van model performance
+- **Gebruiksvriendelijke interface** voor modelmanagement
+- **Samenwerking** tussen teams faciliteren
+
+</div>
+</div>
+
+---
+layout: default
+transition: slide-left
+---
+
+# Generatieve AI in SAP
+
+<div class="grid grid-cols-2 gap-6">
+<div>
+
+## Joule (Business AI Assistant)
+
+- **Natural language interface** voor SAP-systemen
+- **Context-aware** ondersteuning binnen SAP-applicaties
+- **Automatisering** van routinetaken
+- **Data-analyse** met natuurlijke taal
+
+</div>
+<div>
+
+## SAP Build Code
+
+- **Low-code/No-code** ontwikkeling met AI-ondersteuning
+- **Code generatie** voor ABAP, CAP en JavaScript
+- **AI-assistentie** bij ontwikkeling
+- **Versnelling** van implementatieprocessen
+
+</div>
+</div>
+
+---
+layout: default
+transition: slide-left
+---
+
+# Business-specifieke AI-toepassingen
+
+<div class="grid grid-cols-2 gap-6">
+<div>
+
+## SAP S/4HANA
+
+- **Predictive analytics** in financiële processen
+- **Intelligente automatisering** van workflows
+- **Anomaliedetectie** in transacties
+- **Smart matching** van facturen en betalingen
+
+</div>
+<div>
+
+## SAP Customer Experience
+
+- **Gepersonaliseerde klantervaringen**
+- **Voorspellende verkoopanalyses**
+- **Sentiment-analyse** van klantfeedback
+- **Intelligente product-aanbevelingen**
+
+</div>
+</div>
+
+
 
 ---
 transition: fade-out
@@ -65,27 +296,6 @@ Slidev is a slides maker and presenter designed for developers, consist of the f
 <br>
 
 Read more about [Why Slidev?](https://sli.dev/guide/why)
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/features/slide-scope-style
--->
-
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
-
-<!--
-Here is another comment.
--->
 
 ---
 transition: slide-up
@@ -114,24 +324,6 @@ Hover on the bottom-left corner to see the navigation's controls panel, [learn m
 />
 <p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
 
----
-layout: two-cols
-layoutClass: gap-16
----
-
-# Table of contents
-
-You can use the `Toc` component to generate a table of contents for your slides:
-
-```html
-<Toc minDepth="1" maxDepth="1" />
-```
-
-The title will be inferred from your slide content, or you can override it with `title` and `level` in your frontmatter.
-
-::right::
-
-<Toc text-sm minDepth="1" maxDepth="2" />
 
 ---
 layout: image-right
@@ -271,13 +463,6 @@ const author = {
 You can use Vue components directly inside your slides.
 
 We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
 
 Check out [the guides](https://sli.dev/builtin/components.html) for more.
 
@@ -554,7 +739,7 @@ Learn more: [Mermaid Diagrams](https://sli.dev/features/mermaid) and [PlantUML D
 ---
 foo: bar
 dragPos:
-  square: 691,32,167,_,-16
+  square: 657,37,167,_,-16
 ---
 
 # Draggable Elements
@@ -580,7 +765,7 @@ Double-click on the draggable elements to edit their positions.
 </v-drag>
 ```
 
-<v-drag pos="663,206,261,_,-15">
+<v-drag pos="300,332,261,_,-15">
   <div text-center text-3xl border border-main rounded>
     Double-click me!
   </div>
@@ -594,7 +779,7 @@ Double-click on the draggable elements to edit their positions.
 <v-drag-arrow two-way />
 ```
 
-<v-drag-arrow pos="67,452,253,46" two-way op70 />
+<v-drag-arrow pos="450,176,253,46" two-way op70 />
 
 ---
 src: ./pages/imported-slides.md
