@@ -116,8 +116,6 @@ layout: center
 class: text-center
 ---
 
-# De AI Piramide
-
 ```mermaid {scale: .9, theme: 'dark'}
 flowchart TD
     A["🤖 Artificiële Intelligentie (AI)"] --> B["📊 Machine Learning"]
