@@ -254,11 +254,37 @@ transition: slide-left
 - Essentiële vaardigheid voor optimaal AI-gebruik
 - Structuur, context en specificiteit zijn cruciaal
 
-## Belangrijke Technieken
+<div class="mt-4 ml-0 p-3 bg-white/10 rounded-lg">
+  <p class="text-sm italic">
+    "A prompt is not just a question, it's a conversation starter, a guide, and a constraint all at once."
+  </p>
+</div>
+
+---
+layout: default
+transition: slide-left
+---
+
+# Prompt Engineering Technieken
+
+<div class="grid grid-cols-2 gap-6">
+<div>
+
+## Basisconcepten
 - **Chain-of-Thought**: leid het model door complexe redeneringen
 - **Few-Shot Learning**: geef voorbeelden in de prompt
 - **System Prompts**: stel de rol en gedrag van de AI in
+
+</div>
+<div>
+
+## Geavanceerde technieken
 - **Temperature-instelling**: controle over creativiteit vs precisie
+- **Prompt Templates**: herbruikbare promptstructuren
+- **Context Window Management**: optimaal gebruik van tokenruimte
+
+</div>
+</div>
 
 ---
 layout: image-left
@@ -268,20 +294,37 @@ transition: slide-left
 
 # Retrieval Augmented Generation (RAG)
 
-- Combineert LLMs met externe kennisbronnen
-- Vermindert hallucinaties
-- Houdt informatie up-to-date
+<div class="text-sm opacity-80 mb-3">Combineer LLMs met externe kennisbronnen om hallucinaties te verminderen en up-to-date informatie te garanderen</div>
 
-## Werking
-1. **Embeddings**: vectorrepresentaties van tekst
-2. **Retrieval**: zoek relevante informatie in kennisbank
-3. **Generation**: antwoord genereren met gevonden context
-4. **Orchestration**: het hele proces beheren
+<div class="grid grid-cols-2 gap-4">
+  <div>
+    <h3 class="text-lg font-semibold text-[#9F89D7] mb-1">Werking</h3>
+    <ol class="space-y-1 text-sm pl-4">
+      <li><b>Embeddings</b>: vectorrepresentaties</li>
+      <li><b>Retrieval</b>: relevante informatie zoeken</li>
+      <li><b>Generation</b>: antwoord creëren</li>
+      <li><b>Orchestration</b>: proces beheren</li>
+    </ol>
+  </div>
+  
+  <div>
+    <h3 class="text-lg font-semibold text-[#9F89D7] mb-1">SAP Voordelen</h3>
+    <ul class="space-y-1 text-sm pl-4">
+      <li>Integratie met bedrijfsdata</li>
+      <li>Betrouwbaardere antwoorden</li>
+      <li>Minder foutieve informatie</li>
+    </ul>
+  </div>
+</div>
 
-## Voordelen voor SAP
-- Integratie met bedrijfsspecifieke data
-- Nauwkeurigere en betrouwbaardere antwoorden
-- Verminderd risico op foutieve informatie
+<div class="mt-3 p-2 bg-gradient-to-r from-[#5A32C8]/20 to-transparent rounded">
+  <div class="text-sm font-semibold">Toepassingen:</div>
+  <div class="flex justify-between text-xs opacity-80 mt-1">
+    <span>• Knowledge Management</span>
+    <span>• Document Processing</span>
+    <span>• Klantenservice</span>
+  </div>
+</div>
 
 ---
 layout: section
