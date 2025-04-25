@@ -101,44 +101,15 @@ backgroundSize: cover
 transition: slide-left
 ---
 
-<div class="absolute inset-0 bg-black/50 flex items-center justify-center">
-  <div class="text-center max-w-2xl">
-    <blockquote class="text-3xl italic leading-relaxed">
+<div class="absolute inset-0 bg-black/70 flex items-center justify-center">
+  <div class="text-center max-w-2xl p-8">
+    <p class="text-3xl italic leading-relaxed text-white">
       "I believe that at the end of the century the use of words and general educated opinion will have altered so much that one will be able to speak of machines thinking without expecting to be contradicted."
-      <footer class="mt-4 text-xl">- Alan Turing</footer>
-    </blockquote>
+    </p>
+    <p class="mt-4 text-xl text-white/90">— Alan Turing</p>
   </div>
 </div>
 
-<style>
-blockquote {
-  line-height: 1.8;
-  position: relative;
-  padding: 0 2rem;
-}
-
-blockquote::before,
-blockquote::after {
-  content: '"';
-  font-size: 3rem;
-  position: absolute;
-  opacity: 0.3;
-}
-
-blockquote::before {
-  top: -1rem;
-  left: -1rem;
-}
-
-blockquote::after {
-  bottom: -3rem;
-  right: -1rem;
-}
-
-blockquote footer {
-  text-align: right;
-}
-</style>
 
 ---
 layout: center
@@ -674,7 +645,7 @@ transition: slide-left
 ---
 layout: image-right
 image: /assets/todo/8R1Q9XR5ASGS90L25VDY6TRB.jpg
-class: 'text-white'
+class: "text-white"
 transition: slide-left
 ---
 
@@ -845,7 +816,7 @@ transition: slide-left
 
 ---
 layout: center
-class: 'text-center'
+class: "text-center"
 ---
 
 # Toekomstperspectief en Samenvatting
