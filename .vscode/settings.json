@@ -7,5 +7,7 @@
     // "csv (semicolon)",
     // "tab",
     // "tsv"
-  ]
+  ],
+  "slidev.port": 3030,
+  "slidev.preview-sync": true
 }
