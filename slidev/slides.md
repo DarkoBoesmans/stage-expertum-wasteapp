@@ -174,8 +174,6 @@ SPEAKER NOTES:
 - ELIZA toonde aan dat schijnbaar "intelligente" gesprekken kunnen worden gesimuleerd met relatief eenvoudige regels
 - ELIZA kon veel mensen misleiden dat ze met een intelligent wezen spraken, wat het "ELIZA-effect" wordt genoemd
 - Modern verschil: hedendaagse LLMs zoals GPT gebruiken statistische patronen i.p.v. expliciete regels (neural vs. symbolic AI)
-- ELIZA is een voorbeeld van "Symbolic AI" - expliciete kennisrepresentatie via regels en deterministische programmering
-- De schijnbare intelligentie van ELIZA toont de kloof tussen menselijke neiging om intentionaliteit toe te schrijven en werkelijk begrip
 -->
 
 
@@ -276,7 +274,7 @@ transition: slide-left
 
 # Limitations van Generatieve AI
 
-<div class="grid grid-cols-2 gap-6">
+<div class="grid grid-cols-2">
 <div>
 
 ## Hallucinations
@@ -322,7 +320,7 @@ transition: slide-up
 
 # Meer Beperkingen van AI
 
-<div class="grid grid-cols-2 gap-6">
+<div class="grid grid-cols-2">
 <div>
 
 ## Inconsistente Wiskundige Vaardigheden
@@ -412,7 +410,7 @@ transition: slide-left
 
 # Prompt Engineering Technieken
 
-<div class="grid grid-cols-2 gap-6">
+<div class="grid grid-cols-2">
 <div>
 
 ## Basisconcepten
@@ -464,9 +462,44 @@ transition: slide-left
 
 # Retrieval Augmented Generation (RAG)
 
-
-<div class="grid grid-cols-2 gap-6">
+<div class="grid grid-cols-2">
 <div>
+
+## Werking
+
+**Embeddings** <br>
+*Vectorrepresentaties van tekst*
+
+**Retrieval** <br>
+*Relevante informatie zoeken*
+
+**Generation** <br>
+*Context-rijk antwoord creëren*
+
+**Orchestration** <br>
+*Gehele proces optimaal beheren*
+
+</div>
+<div>
+
+## SAP Voordelen
+
+**Nauwkeurigheid** <br>
+*Betrouwbaardere antwoorden*
+
+**Context** <br>
+*Integratie met bedrijfsspecifieke data*
+
+**Actualiteit** <br>
+*Toegang tot recente informatie*
+
+**Compliance** <br>
+*Verbeterde controle over AI-output*
+</div>
+</div>
+
+
+<!--
 
 ## Werking
 - **Embeddings**: Vectorrepresentaties van tekst
@@ -482,9 +515,6 @@ transition: slide-left
   - Coördineert alle componenten
   - Zorgt voor betere prestaties en schaalbaarheid
 
-</div>
-<div>
-
 ## SAP Voordelen
 - **Nauwkeurigheid**: Betrouwbaardere antwoorden
   - Vermindert foutieve informatie of hallucinaties
@@ -499,11 +529,6 @@ transition: slide-left
   - Voldoet aan regelgeving en GDPR
   - Audit trail van gebruikte kennisbronnen
 
-</div>
-</div>
-
-<!--
-  Combineer LLMs met externe kennisbronnen om hallucinaties te verminderen en up-to-date informatie te garanderen
 -->
 
 ---
@@ -513,7 +538,7 @@ transition: slide-left
 
 # AI Toepassingen binnen SAP
 
-<div class="grid grid-cols-2 gap-6">
+<div class="grid grid-cols-2">
 <div>
 
 ## SAP AI Core
@@ -543,7 +568,7 @@ transition: slide-left
 
 # Generatieve AI in SAP
 
-<div class="grid grid-cols-2 gap-6">
+<div class="grid grid-cols-2">
 <div>
 
 ## Joule (Business AI Assistant)
@@ -573,7 +598,7 @@ transition: slide-left
 
 # Business-specifieke AI-toepassingen
 
-<div class="grid grid-cols-2 gap-6">
+<div class="grid grid-cols-2">
 <div>
 
 ## SAP S/4HANA
@@ -603,41 +628,160 @@ transition: slide-left
 
 # Orchestration Tools: "Agents"
 
-<div class="grid grid-cols-2 gap-6">
+Autonome AI-systemen die taken uitvoeren door beslissingen te nemen en acties te ondernemen op basis van contextuele informatie.
+<div class="grid grid-cols-2">
 <div>
 
-## Wat zijn AI Agents?
-- Autonome AI-systemen die taken uitvoeren
-- Kunnen beslissingen nemen en acties ondernemen
-- Aaneenschakeling van verschillende AI-modellen
-- Interactie met externe systemen en APIs
-
-## Agent Frameworks
-- **LangChain**: flexibel framework voor AI-workflows
-- **AutoGPT**: zelfstandige, doelgerichte agents
-- **BabyAGI**: taakbeheer en prioritering
+1. **Aaneenschakeling van verschillende AI-modellen**
+   - Koppelt verschillende modellen als "specialisten"
+   - Orkestreert datastromen tussen modellen
+   - Schakelt automatisch tussen modellen
 
 </div>
 <div>
 
-## Toepassingen in SAP
-- **Procesautomatisering**: complexe workflows automatiseren
-- **Beslissingsondersteuning**: data-analyse en aanbevelingen
-- **Anomaliedetectie**: proactieve controle en melding
-- **Klantenservice**: geautomatiseerde probleemoplossing
+2. **Interactie met externe systemen en APIs**
+   - Verbindt met bedrijfssystemen
+   - Haalt gegevens op en schrijft resultaten terug
+   - Authenticatie en toegangsbeheer
 
-## Uitdagingen
-- Betrouwbaarheid en consistentie
-- Security en toegangscontrole
-- Menselijke supervisie
-- Ethische overwegingen
+</div>
+<div>
+
+3. **Doelgerichte uitvoering van complexe taken**
+   - Plant en volgt multi-stap workflows autonoom
+   - Splitst complexe doelen op in haalbare subtaken
+   - Leert en verbetert strategieën door eerdere uitvoeringen
+
+</div>
+<div>
+
+4. **Zelfstandig nemen van beslissingen binnen kaders**
+   - Vooraf gedefinieerde beleidsrichtlijnen
+   - Escalateert naar mensen bij twijfel
+   - Gebruikt zakelijke regels
 
 </div>
 </div>
 
 ---
-layout: image-right
-image: https://www.sap.com/content/dam/marketing/commerce/images/joule/joule-purple-chip-1216x684.jpg/_jcr_content/renditions/original.transform/dam-image-tablet/joule-purple-chip-1216x684.jpg
+layout: default
+transition: slide-left
+---
+
+# AI Agents in SAP: Toepassingen
+
+<div class="grid grid-cols-2 gap-4">
+<div>
+
+  ## Procesautomatisering
+  Automatiseren van complexe workflows zoals inkoopprocessen, goedkeuringen en reconciliatie
+
+  - End-to-end automatisering van inkoop
+  - Intelligente goedkeuringsrouting
+  - Autonome reconciliatie van facturen
+  
+  ## Beslissingsondersteuning
+  Analyseren van data en formuleren van aanbevelingen voor bedrijfsbeslissingen
+
+  - Voorspellende inzichten voor verkoop
+  - Simulatie van bedrijfsscenario's
+  - Aanbevelingen voor productportfolio
+
+</div>
+  
+<div>
+
+  ## Anomaliedetectie
+  Proactieve controle en melding van afwijkingen in transacties en systemen
+
+  - Fraudedetectie in financiële transacties
+  - Identificatie van systeemafwijkingen
+  - Monitoring van datapatronen in real-time
+  
+  ## Klantenservice
+  Geautomatiseerde probleemoplossing en opvolging van klantvragen
+
+  - Intelligente routing van ondersteuningsvragen
+  - Automatische resolutie van problemen
+  - Proactieve follow-up en case management
+
+</div>
+</div>
+
+---
+layout: default
+transition: slide-left
+---
+
+# AI Agents in SAP: Uitdagingen
+
+<div class="grid grid-cols-2 gap-4">
+<div>
+
+  ## Betrouwbaarheid en consistentie
+  Garanderen van consistente resultaten over verschillende bedrijfsprocessen
+
+  - Gestandaardiseerde kwaliteitscontroles
+  - Duidelijke prestatie-indicatoren
+  - Regelmatige model-evaluatie en -kalibratie
+  
+  ## Security en toegangscontrole
+  Waarborgen van veilige toegang tot gevoelige bedrijfsgegevens
+
+  - Granulaire toegangsrechten voor agents
+  - Versleuteling van gevoelige data in transit
+  - Monitoring en logging van systeeminteracties
+
+</div>
+
+<div>
+
+  ## Menselijke supervisie
+  Balanceren van autonomie met noodzakelijke menselijke controle
+
+  - Duidelijke escalatieprocessen
+  - Human-in-the-loop workflows bij kritieke beslissingen
+  - Transparante automatiseringsgrenzen
+  
+  ## Ethische overwegingen
+  Zorgen voor verantwoord gebruik van autonome systemen in bedrijfsomgevingen
+
+  - Bias-detectie en -mitigatie
+  - Explainable AI voor kritieke processen
+  - Naleving van regelgeving en best practices
+
+</div>
+</div>
+
+---
+layout: default
+transition: slide-left
+---
+
+# Praktijkvoorbeeld: SAP Agent Orchestration
+
+## Automatisch inkoopproces met AI agents
+
+### Workflow
+1. 📝 **Aanvraag**: Detecteert inkoopbehoefte
+2. 🔍 **Analyse**: Zoekt leveranciers en prijzen
+3. 📊 **Besluit**: Stelt optimale keuze voor
+
+### Componenten
+- 🔄 **Procurement Agent**: Monitort voorraadniveaus en initieert aanvragen
+- 🔄 **Vendor Agent**: Zoekt en evalueert potentiële leveranciers
+- 🔄 **Pricing Agent**: Analyseert en vergelijkt kostenopties
+- 🔄 **Approval Agent**: Routeert goedkeuringen naar juiste personen
+
+### Voordelen
+- ⏱️ **70% tijdsbesparing** in inkoopprocessen
+- 💰 **15-20% kostenbesparing** door optimale leveranciersselectie
+- 🔄 **24/7 operatie** zonder menselijke vertraging
+- 📊 **Verbeterde audit trails** met volledige documentatie
+
+---
+layout: default
 transition: slide-left
 ---
 
@@ -645,20 +789,30 @@ transition: slide-left
 
 SAP's AI-assistent die natuurlijke taal gebruikt om SAP-systemen toegankelijker te maken.
 
+<div class="grid grid-cols-2">
+<div>
+
 ## Kernfunctionaliteiten
 - **Conversatie-interface** voor SAP-toepassingen
 - **Contextbewuste** ondersteuning en analyses
 - **Multi-modale interactie**: tekst, spraak, afbeeldingen
 - **Workflow-automatisering** en procesversnelling
 
+</div>
+<div>
+
+
 ## Integratie
 - S/4HANA, SAP SuccessFactors, SAP Customer Experience
 - SAP Business Technology Platform
 - Verbinding met externe AI-diensten via SAP AI Core
 
+</div>
+</div>
+
 ---
 layout: image-left
-image: https://www.sap.com/dam/application/shared/images/images/sapcom-page-banner-70-30.jpg
+image: https://images.unsplash.com/photo-1569360531163-a61fa3da86ee
 transition: slide-left
 ---
 
@@ -670,6 +824,13 @@ transition: slide-left
 - Intelligente classificatie en verwerking
 
 ## Voordelen
+- Tijdsbesparing
+- Nauwkeurigheid
+- Schaalbaarheid
+- Inzicht
+
+<!--
+## Voordelen
 - **Tijdsbesparing**: automatisering van handmatige processen
 - **Nauwkeurigheid**: vermindering van verwerkingsfouten
 - **Schaalbaarheid**: verwerking van grote documentvolumes
@@ -680,6 +841,7 @@ transition: slide-left
 - Contractanalyse
 - Compliance-documentatie
 - Klantcorrespondentie
+-->
 
 ---
 layout: default
@@ -792,7 +954,7 @@ transition: slide-left
 
 # Computer Vision voor Afvalherkenning
 
-<div class="grid grid-cols-2 gap-6">
+<div class="grid grid-cols-2">
 <div>
 
 ## Project Overzicht
@@ -865,7 +1027,7 @@ transition: slide-left
 
 # Technische Architectuur
 
-<div class="grid grid-cols-2 gap-6">
+<div class="grid grid-cols-2">
 <div>
 
 ## Frontend Components
@@ -954,7 +1116,7 @@ transition: slide-left
 
 # Klantenservice Chat AI
 
-<div class="grid grid-cols-2 gap-6">
+<div class="grid grid-cols-2">
 <div>
 
 ## Project Overzicht
