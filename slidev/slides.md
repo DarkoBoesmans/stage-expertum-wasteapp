@@ -136,6 +136,48 @@ Een ondervrager probeert te bepalen welke deelnemer een computer is en welke een
 
 *Verschuift focus van "kan een machine denken?" naar "kan een machine menselijk gedrag imiteren?*
 
+---
+layout: two-cols-header
+transition: slide-left
+---
+
+# Turing Test vs. Eliza
+
+Waar de Turing Test een filosofisch experiment was om intelligentie te definiëren, was Eliza een praktische implementatie die aantoonde hoe eenvoudige rule-based systemen de illusie van begrip kunnen wekken (het "ELIZA-effect") zonder werkelijk intelligent te zijn.
+
+::left::
+
+## Eliza (1966)
+- Een van de eerste chatbots, ontwikkeld door Joseph Weizenbaum
+- Symbolic AI: gebruikt expliciete regels en patroonherkenning
+- Simuleerde een psychotherapeut via eenvoudige scripts
+
+::right::
+
+## Verloop
+- Zoekt naar sleutelwoorden in gebruikersinvoer
+- Past vooraf gedefinieerde antwoordpatronen toe
+- Stelt vaak vragen terug aan de gebruiker
+- Geen echt "begrip", alleen patroonherkenning
+- Verrassend effectief door menselijke neiging om intentie toe te schrijven
+
+<!-- 
+SPEAKER NOTES:
+- De Turing Test stelt het criterium dat een machine intelligent is als deze ononderscheidbaar is van een mens in gesprek
+- ELIZA toonde aan dat schijnbaar "intelligente" gesprekken kunnen worden gesimuleerd met relatief eenvoudige regels
+- ELIZA kon veel mensen misleiden dat ze met een intelligent wezen spraken, wat het "ELIZA-effect" wordt genoemd
+- Modern verschil: hedendaagse LLMs zoals GPT gebruiken statistische patronen i.p.v. expliciete regels (neural vs. symbolic AI)
+- ELIZA is een voorbeeld van "Symbolic AI" - expliciete kennisrepresentatie via regels en deterministische programmering
+- De schijnbare intelligentie van ELIZA toont de kloof tussen menselijke neiging om intentionaliteit toe te schrijven en werkelijk begrip
+
+- De Turing Test stelt het criterium dat een machine intelligent is als deze ononderscheidbaar is van een mens in gesprek
+- ELIZA toonde aan dat schijnbaar "intelligente" gesprekken kunnen worden gesimuleerd met relatief eenvoudige regels
+- ELIZA kon veel mensen misleiden dat ze met een intelligent wezen spraken, wat het "ELIZA-effect" wordt genoemd
+- Modern verschil: hedendaagse LLMs zoals GPT gebruiken statistische patronen i.p.v. expliciete regels (neural vs. symbolic AI)
+- ELIZA is een voorbeeld van "Symbolic AI" - expliciete kennisrepresentatie via regels en deterministische programmering
+- De schijnbare intelligentie van ELIZA toont de kloof tussen menselijke neiging om intentionaliteit toe te schrijven en werkelijk begrip
+-->
+
 
 ---
 layout: image
@@ -422,39 +464,46 @@ transition: slide-left
 
 # Retrieval Augmented Generation (RAG)
 
-Combineer LLMs met externe kennisbronnen om hallucinaties te verminderen en up-to-date informatie te garanderen
 
-<div class="grid grid-cols-2 gap-4">
-  <div>
-  
-  ## Werking
-  
-  - **Embeddings:** vectorrepresentaties
-  - **Retrieval:** relevante informatie zoeken
-  - **Generation:** antwoord creëren
-  - **Orchestration:** proces beheren
-  
-  </div>
-  
-  <div>
-  
-  ## SAP Voordelen
-  
-  - Integratie met bedrijfsdata
-  - Betrouwbaardere antwoorden
-  - Minder foutieve informatie
-  
-  </div>
+<div class="grid grid-cols-2 gap-6">
+<div>
+
+## Werking
+- **Embeddings**: Vectorrepresentaties van tekst
+  - Zet tekst om in numerieke vectoren
+  - Maakt semantische zoekoperaties mogelijk
+- **Retrieval**: Relevante informatie zoeken
+  - Zoekt in bronnen op basis van vector similarity
+  - Selecteert de meest relevante fragmenten
+- **Generation**: Context-rijk antwoord creëren
+  - Voegt gevonden informatie toe aan de prompt
+  - LLM gebruikt deze externe kennis
+- **Orchestration**: Gehele proces optimaal beheren
+  - Coördineert alle componenten
+  - Zorgt voor betere prestaties en schaalbaarheid
+
+</div>
+<div>
+
+## SAP Voordelen
+- **Nauwkeurigheid**: Betrouwbaardere antwoorden
+  - Vermindert foutieve informatie of hallucinaties
+  - Vooral voor zakelijke toepassingen
+- **Context**: Integratie met bedrijfsspecifieke data
+  - Verbindt met SAP S/4HANA, ERP, ...
+  - Bedrijfsspecifieke en relevante antwoorden
+- **Actualiteit**: Toegang tot recente informatie
+  - Kennis is altijd up-to-date
+  - Actuele gegevens uit SAP-systemen
+- **Compliance**: Verbeterde controle over AI-output
+  - Voldoet aan regelgeving en GDPR
+  - Audit trail van gebruikte kennisbronnen
+
+</div>
 </div>
 
 <!--
-
-Toepassingen:
-
-  - Knowledge Management
-  - Document Processing
-  - Klantenservice
-
+  Combineer LLMs met externe kennisbronnen om hallucinaties te verminderen en up-to-date informatie te garanderen
 -->
 
 ---
