@@ -66,8 +66,9 @@ transition: slide-left
 
 # Wat is AI?
 
-- "Intelligence: het vermogen om complexe doelen te bereiken" (Max Tegmark, Life 3.0)
-- "Artificiële Intelligentie: intelligentie vertoond door niet-biologische systemen"
+- **Intelligentie:** "The ability to accomplish complex goals" <br>
+  *(Max Tegmark, Life 3.0: Being Human in the Age of Artificial Intelligenc)*
+- **Artificiële Intelligentie:** "Intelligentie vertoond door niet-biologische systemen"
 
 ::left::
 
@@ -89,10 +90,52 @@ transition: slide-left
 
 # Alan Turing (1912-1954)
 
-- 🧠 Universele Turing Machine (UTM)
-- 🔐 Ontcijferde de Enigma-code (WOII)
-- ⚠️ Bewees het halting problem
-- 🤖 Uitvinder van de Turing Test
+- **Universal Turing Machine (UTM)**
+  - Wiskundige concept van een computer
+  - Church-Turing these
+- **Halting problem**
+  - Er bestaat geen universeel algoritme
+- **Enigma-code**
+  - Bombe Machine
+- **Imitation Game**
+
+<!-- 
+
+-->
+
+<!-- 
+  UTM
+  - elk modern systeem is hier nog steeds op gebaseerd (behalve quantumcomputers)
+  - bewees dat elke UTM een andere UTM kan simuleren
+
+  Halting problem
+  - Kan niet voor elk programma bepalen of het stopt of oneindig doorloopt
+
+  Enigma-code
+  - Enigma was een cruciale doorbraak die WOII mogelijk heeft bekort
+
+  Imitation Game
+  - Test of machines menselijke intelligentie kunnen nabootsen
+
+-->
+
+---
+layout: image-left
+image: https://images.unsplash.com/photo-1620712943543-bcc4688e7485
+transition: slide-left
+---
+
+# Imitation Game
+
+Een ondervrager probeert te bepalen welke deelnemer een computer is en welke een mens, alleen op basis van geschreven antwoorden
+
+## Setup
+
+- Een ondervrager "C" probeert te bepalen welke deelnemer een computer is ("A" of "B")
+- Communicatie gebeurt alleen geschreven
+
+*Verschuift focus van "kan een machine denken?" naar "kan een machine menselijk gedrag imiteren?*
+
 
 ---
 layout: image
@@ -103,17 +146,26 @@ transition: slide-left
 
 <div class="absolute inset-0 bg-black/70 flex items-center justify-center">
   <div class="text-center max-w-2xl p-8">
-    <p class="text-3xl italic leading-relaxed text-white">
+    <p class="text-3xl italic leading-relaxed text-white" style="line-height: 1.25;">
       "I believe that at the end of the century the use of words and general educated opinion will have altered so much that one will be able to speak of machines thinking without expecting to be contradicted."
     </p>
-    <p class="mt-4 text-xl text-white/90">— Alan Turing</p>
+    <p class="mt-6 text-xl text-white/90">— Alan Turing</p>
   </div>
 </div>
+
+<!-- 
+  In dit citaat uit 1950 voorspelt Turing dat tegen het einde van de 20e eeuw:
+  
+  1. Onze definitie van "denken" zou veranderen
+  2. We zouden accepteren dat machines kunnen "denken" zonder dat dit controversieel zou zijn
+  3. De grens tussen menselijke en kunstmatige intelligentie zou vervagen
+-->
 
 
 ---
 layout: center
 class: text-center
+transition: slide-up
 ---
 
 ```mermaid {scale: .9, theme: 'dark'}
@@ -137,6 +189,43 @@ flowchart TD
     style C1 fill:none,stroke:none,color:white
     style D1 fill:none,stroke:none,color:white
 ```
+
+<!--
+  Artificiële Intelligentie (AI):
+  - Is het overkoepelende concept van machines die intelligent gedrag vertonen
+    - Omvat alle technieken om computers "intelligent" te make
+  - Bestaat al sinds de jaren 1950, maar heeft recent grote doorbraken gekend Machine Learning:
+    - Is een subset van AI waarbij systemen leren van data zonder expliciete programmering
+    - Voorbeelden: beslissingsbomen, random forests, support vector machines
+
+  - Traditionele ML vereist vaak handmatige feature-engineering Deep Learning:
+    - Is een subset van ML gebaseerd op neurale netwerken met meerdere lagen
+    - Kan automatisch features leren uit ruwe data
+    - Vereist grote hoeveelheden data en rekenkracht
+
+  - Heeft geleid tot doorbraken in computer vision, NLP en spraakherkenning Foundation Models & Generatieve AI:
+    - Foundation models zijn grote modellen getraind op enorme datasets
+    - Generatieve AI kan nieuwe content creëren (tekst, afbeeldingen, code)
+    - Voorbeelden zijn GPT-4, Claude, DALL-E, Midjourney, GitHub Copilot
+
+  - Deze modellen hebben revolutionaire mogelijkheden maar ook nieuwe uitdagingen De evolutie van AI toont een steeds toenemende complexiteit en capaciteit, waarbij elke nieuwe laag voortbouwt op de voorgaande en nieuwe mogelijkheden introduceert.
+-->
+
+---
+layout: section
+transition: slide-left
+---
+
+# Van Concept naar Realiteit
+
+De evolutie van AI van theoretisch concept naar praktische toepassingen
+
+---
+layout: section
+transition: slide-left
+---
+
+## De limitaties
 
 ---
 layout: default
@@ -186,7 +275,7 @@ klinkt fantastisch! Hier is wat je moet weten: ...
 
 ---
 layout: default
-transition: slide-left
+transition: slide-up
 ---
 
 # Meer Beperkingen van AI
@@ -243,10 +332,20 @@ Antwoord: 6 uur na vertrek tweede auto.
 </div>
 
 ---
-layout: image-right
-image: https://images.unsplash.com/photo-1633409361618-c73427e4e206?q=80&w=1000&auto=format&fit=crop
+layout: section
 transition: slide-left
 ---
+
+## Prompt Engineering
+
+---
+layout: image-right
+image: https://images.unsplash.com/photo-1581092160562-40aa08e78837
+transition: slide-left
+---
+
+<div class="flex flex-col h-full justify-between">
+<div>
 
 # Prompt Engineering
 
@@ -254,10 +353,14 @@ transition: slide-left
 - Essentiële vaardigheid voor optimaal AI-gebruik
 - Structuur, context en specificiteit zijn cruciaal
 
+</div>
+
 <div class="mt-4 ml-0 p-3 bg-white/10 rounded-lg">
   <p class="text-sm italic">
     "A prompt is not just a question, it's a conversation starter, a guide, and a constraint all at once."
   </p>
+</div>
+
 </div>
 
 ---
@@ -287,69 +390,72 @@ transition: slide-left
 </div>
 
 ---
-layout: image-left
-image: https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1000&auto=format&fit=crop
+layout: image-right
+image: https://pbs.twimg.com/media/Gkt0bbGXIAEKh0q?format=jpg&name=large
+transition: slide-up
+---
+
+# The Anatomy of an o1 Prompt
+
+Claude Opus (o1) is Anthropic's geavanceerde LLM uit de Claude familie, bekend om zijn hoge kwaliteit output en sterke redeneervaardigheden.
+
+1. **Goal**
+    - Duidelijk geformuleerd doel of resultaat
+2. **Return Format**
+    - Precieze structuur voor de response
+3. **Warnings**
+    - Expliciete instructies wat te vermijden
+4. **Context Dump**
+    - Relevante achtergrondinformatie
+
+---
+layout: section
+transition: slide-left
+---
+
+## AI binnen SAP
+
+---
+layout: default
 transition: slide-left
 ---
 
 # Retrieval Augmented Generation (RAG)
 
-<div class="text-sm opacity-80 mb-3">Combineer LLMs met externe kennisbronnen om hallucinaties te verminderen en up-to-date informatie te garanderen</div>
+Combineer LLMs met externe kennisbronnen om hallucinaties te verminderen en up-to-date informatie te garanderen
 
 <div class="grid grid-cols-2 gap-4">
   <div>
-    <h3 class="text-lg font-semibold text-[#9F89D7] mb-1">Werking</h3>
-    <ol class="space-y-1 text-sm pl-4">
-      <li><b>Embeddings</b>: vectorrepresentaties</li>
-      <li><b>Retrieval</b>: relevante informatie zoeken</li>
-      <li><b>Generation</b>: antwoord creëren</li>
-      <li><b>Orchestration</b>: proces beheren</li>
-    </ol>
+  
+  ## Werking
+  
+  - **Embeddings:** vectorrepresentaties
+  - **Retrieval:** relevante informatie zoeken
+  - **Generation:** antwoord creëren
+  - **Orchestration:** proces beheren
+  
   </div>
   
   <div>
-    <h3 class="text-lg font-semibold text-[#9F89D7] mb-1">SAP Voordelen</h3>
-    <ul class="space-y-1 text-sm pl-4">
-      <li>Integratie met bedrijfsdata</li>
-      <li>Betrouwbaardere antwoorden</li>
-      <li>Minder foutieve informatie</li>
-    </ul>
+  
+  ## SAP Voordelen
+  
+  - Integratie met bedrijfsdata
+  - Betrouwbaardere antwoorden
+  - Minder foutieve informatie
+  
   </div>
 </div>
 
-<div class="mt-3 p-2 bg-gradient-to-r from-[#5A32C8]/20 to-transparent rounded">
-  <div class="text-sm font-semibold">Toepassingen:</div>
-  <div class="flex justify-between text-xs opacity-80 mt-1">
-    <span>• Knowledge Management</span>
-    <span>• Document Processing</span>
-    <span>• Klantenservice</span>
-  </div>
-</div>
+<!--
 
----
-layout: section
-transition: slide-up
----
+Toepassingen:
 
-# AI binnen SAP
+  - Knowledge Management
+  - Document Processing
+  - Klantenservice
 
-<div class="flex justify-center">
-  <div class="text-center max-w-2xl">
-    <p class="text-xl mt-4 opacity-80">
-      Van intelligent ERP naar intelligente onderneming
-    </p>
-  </div>
-</div>
-
-<style>
-h1 {
-  background-image: linear-gradient(45deg, #5A32C8, #C6B6FF);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  font-size: 3rem !important;
-}
-</style>
+-->
 
 ---
 layout: default
@@ -589,7 +695,7 @@ transition: slide-left
 
 ---
 layout: image-right
-image: https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1000&auto=format&fit=crop
+image: https://images.unsplash.com/photo-1485827404703-89b55fcc595e
 transition: slide-left
 ---
 
@@ -628,15 +734,7 @@ transition: slide-up
   </div>
 </div>
 
-<style>
-h1 {
-  background-image: linear-gradient(45deg, #5A32C8, #C6B6FF);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  font-size: 3rem !important;
-}
-</style>
+
 
 ---
 layout: default
@@ -798,15 +896,7 @@ transition: slide-up
   </div>
 </div>
 
-<style>
-h1 {
-  background-image: linear-gradient(45deg, #5A32C8, #C6B6FF);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  font-size: 3rem !important;
-}
-</style>
+
 
 ---
 layout: default
