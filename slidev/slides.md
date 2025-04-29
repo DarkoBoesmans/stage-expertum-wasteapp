@@ -54,6 +54,8 @@ hideInToc: true
 transition: slide-left
 ---
 
+<!-- TODO: Titels nakijken zodat de toc niet overvol staat -->
+
 # Table of contents
 
 <Toc maxDepth="1"></Toc>
@@ -86,6 +88,7 @@ transition: slide-left
 layout: image-right
 image: https://www.elcorreo.com/xlsemanal/wp-content/uploads/sites/5/2023/04/alan-turing-inventor-informatica-espia-codigo-enigma-segunda-guerra-mundial.jpg
 transition: slide-left
+hideInToc: true
 ---
 
 # Alan Turing (1912-1954)
@@ -123,6 +126,7 @@ transition: slide-left
 layout: image-left
 image: https://images.unsplash.com/photo-1620712943543-bcc4688e7485
 transition: slide-left
+hideInToc: true
 ---
 
 # Imitation Game
@@ -139,6 +143,7 @@ Een ondervrager probeert te bepalen welke deelnemer een computer is en welke een
 ---
 layout: two-cols-header
 transition: slide-left
+hideInToc: true
 ---
 
 # Turing Test vs. Eliza
@@ -176,12 +181,17 @@ SPEAKER NOTES:
 - Modern verschil: hedendaagse LLMs zoals GPT gebruiken statistische patronen i.p.v. expliciete regels (neural vs. symbolic AI)
 -->
 
+---
+layout: iframe-right
+url: https://anthay.github.io/eliza.html
+---
 
 ---
 layout: image
 image: https://images.nemokennislink.nl/uploads/02_alan_turing_large.jpg
 backgroundSize: cover
 transition: slide-left
+hideInToc: true
 ---
 
 <div class="absolute inset-0 bg-black/70 flex items-center justify-center">
@@ -206,6 +216,7 @@ transition: slide-left
 layout: center
 class: text-center
 transition: slide-up
+hideInToc: true
 ---
 
 ```mermaid {scale: .9, theme: 'dark'}
@@ -263,6 +274,7 @@ De evolutie van AI van theoretisch concept naar praktische toepassingen
 ---
 layout: section
 transition: slide-left
+hideInToc: true
 ---
 
 ## De limitaties
@@ -274,7 +286,7 @@ transition: slide-left
 
 # Limitations van Generatieve AI
 
-<div class="grid grid-cols-2">
+<div class="grid grid-cols-2 gap-6">
 <div>
 
 ## Hallucinations
@@ -316,11 +328,12 @@ klinkt fantastisch! Hier is wat je moet weten: ...
 ---
 layout: default
 transition: slide-up
+hideInToc: true
 ---
 
 # Meer Beperkingen van AI
 
-<div class="grid grid-cols-2">
+<div class="grid grid-cols-2 gap-6">
 <div>
 
 ## Inconsistente Wiskundige Vaardigheden
@@ -374,6 +387,7 @@ Antwoord: 6 uur na vertrek tweede auto.
 ---
 layout: section
 transition: slide-left
+hideInToc: true
 ---
 
 ## Prompt Engineering
@@ -406,11 +420,12 @@ transition: slide-left
 ---
 layout: default
 transition: slide-left
+hideInToc: true
 ---
 
 # Prompt Engineering Technieken
 
-<div class="grid grid-cols-2">
+<div class="grid grid-cols-2 gap-6">
 <div>
 
 ## Basisconcepten
@@ -433,6 +448,7 @@ transition: slide-left
 layout: image-right
 image: https://pbs.twimg.com/media/Gkt0bbGXIAEKh0q?format=jpg&name=large
 transition: slide-up
+hideInToc: true
 ---
 
 # The Anatomy of an o1 Prompt
@@ -458,11 +474,12 @@ transition: slide-left
 ---
 layout: default
 transition: slide-left
+hideInToc: true
 ---
 
 # Retrieval Augmented Generation (RAG)
 
-<div class="grid grid-cols-2">
+<div class="grid grid-cols-2 gap-6">
 <div>
 
 ## Werking
@@ -534,11 +551,12 @@ transition: slide-left
 ---
 layout: default
 transition: slide-left
+hideInToc: true
 ---
 
 # AI Toepassingen binnen SAP
 
-<div class="grid grid-cols-2">
+<div class="grid grid-cols-2 gap-6">
 <div>
 
 ## SAP AI Core
@@ -564,11 +582,12 @@ transition: slide-left
 ---
 layout: default
 transition: slide-left
+hideInToc: true
 ---
 
 # Generatieve AI in SAP
 
-<div class="grid grid-cols-2">
+<div class="grid grid-cols-2 gap-6">
 <div>
 
 ## Joule (Business AI Assistant)
@@ -594,11 +613,12 @@ transition: slide-left
 ---
 layout: default
 transition: slide-left
+hideInToc: true
 ---
 
 # Business-specifieke AI-toepassingen
 
-<div class="grid grid-cols-2">
+<div class="grid grid-cols-2 gap-6">
 <div>
 
 ## SAP S/4HANA
@@ -624,12 +644,15 @@ transition: slide-left
 ---
 layout: default
 transition: slide-left
+hideInToc: true
 ---
+
+<!-- TODO: Info verdelen want het is te veel op een slide -->
 
 # Orchestration Tools: "Agents"
 
 Autonome AI-systemen die taken uitvoeren door beslissingen te nemen en acties te ondernemen op basis van contextuele informatie.
-<div class="grid grid-cols-2">
+<div class="grid grid-cols-2 gap-6">
 <div>
 
 1. **Aaneenschakeling van verschillende AI-modellen**
@@ -667,7 +690,10 @@ Autonome AI-systemen die taken uitvoeren door beslissingen te nemen en acties te
 ---
 layout: default
 transition: slide-left
+hideInToc: true
 ---
+
+<!-- TODO: Info verdelen want het is te veel op een slide -->
 
 # AI Agents in SAP: Toepassingen
 
@@ -712,7 +738,10 @@ transition: slide-left
 ---
 layout: default
 transition: slide-left
+hideInToc: true
 ---
+
+<!-- TODO: Info verdelen want het is te veel op een slide -->
 
 # AI Agents in SAP: Uitdagingen
 
@@ -757,7 +786,11 @@ transition: slide-left
 ---
 layout: default
 transition: slide-left
+hideInToc: true
 ---
+
+<!-- TODO: Info verdelen want het is te veel op een slide -->
+<!-- TODO: Stijl aanpassen zodat het bij de rest hoort -->
 
 # Praktijkvoorbeeld: SAP Agent Orchestration
 
@@ -781,15 +814,18 @@ transition: slide-left
 - 📊 **Verbeterde audit trails** met volledige documentatie
 
 ---
-layout: default
+layout: iframe-left
+url: https://www.youtube.com/embed/aj8VIHdGR0A?autoplay=1&mute=1
 transition: slide-left
 ---
+
+<!-- TODO: Info verdelen want het is te veel op een slide -->
 
 # SAP Copilot Joule
 
 SAP's AI-assistent die natuurlijke taal gebruikt om SAP-systemen toegankelijker te maken.
 
-<div class="grid grid-cols-2">
+<div class="grid grid-cols-2 gap-6">
 <div>
 
 ## Kernfunctionaliteiten
@@ -814,6 +850,7 @@ SAP's AI-assistent die natuurlijke taal gebruikt om SAP-systemen toegankelijker 
 layout: image-left
 image: https://images.unsplash.com/photo-1569360531163-a61fa3da86ee
 transition: slide-left
+hideInToc: true
 ---
 
 # Just Ask & Document Processing
@@ -846,7 +883,10 @@ transition: slide-left
 ---
 layout: default
 transition: slide-left
+hideInToc: true
 ---
+
+<!-- TODO: Stijl aanpassen zodat het bij de rest hoort -->
 
 # Domains voor Use Cases
 
@@ -910,6 +950,8 @@ image: https://images.unsplash.com/photo-1485827404703-89b55fcc595e
 transition: slide-left
 ---
 
+<!-- TODO: Info verdelen want het is te veel op een slide -->
+
 # Ethische & Sociale Aspecten van AI
 
 ## Kernuitdagingen
@@ -935,7 +977,7 @@ layout: section
 transition: slide-up
 ---
 
-# AI binnen IVAGO Waste-App
+# AI binnen IVAGO
 
 <div class="flex justify-center">
   <div class="text-center max-w-2xl">
@@ -950,11 +992,16 @@ transition: slide-up
 ---
 layout: default
 transition: slide-left
+hideInToc: true
 ---
+
+<!-- TODO: Info verdelen want het is te veel op een slide -->
+<!-- TODO: Stijl aanpassen zodat het bij de rest hoort -->
+<!-- TODO: Info op de slide aanpassen -->
 
 # Computer Vision voor Afvalherkenning
 
-<div class="grid grid-cols-2">
+<div class="grid grid-cols-2 gap-6">
 <div>
 
 ## Project Overzicht
@@ -994,10 +1041,11 @@ transition: slide-left
 
 ---
 layout: image-right
-image: /assets/todo/8R1Q9XR5ASGS90L25VDY6TRB.jpg
-class: "text-white"
+image: https://user-images.githubusercontent.com/1381301/66535560-d3422200-eace-11e9-9123-5535d469db19.png
 transition: slide-left
 ---
+
+<!-- TODO: Info aanpassen -->
 
 # Demo: Afvalherkenning
 
@@ -1023,11 +1071,15 @@ transition: slide-left
 ---
 layout: default
 transition: slide-left
+hideInToc: true
 ---
+
+<!-- TODO: Info aanpassen -->
+<!-- TODO: Info verdelen want het is te veel op een slide -->
 
 # Technische Architectuur
 
-<div class="grid grid-cols-2">
+<div class="grid grid-cols-2 gap-6">
 <div>
 
 ## Frontend Components
@@ -1116,7 +1168,7 @@ transition: slide-left
 
 # Klantenservice Chat AI
 
-<div class="grid grid-cols-2">
+<div class="grid grid-cols-2 gap-6">
 <div>
 
 ## Project Overzicht
@@ -1191,6 +1243,7 @@ class: "text-center"
 ---
 layout: center
 class: text-center
+hideInToc: true
 ---
 
 # Vragen?
@@ -1200,5 +1253,315 @@ class: text-center
     <p class="text-xl mt-4 opacity-80">
       Bedankt voor jullie aandacht!
     </p>
+  </div>
+</div>
+
+---
+layout: default
+transition: slide-left
+---
+
+# SAP AI Core: Capacity Units
+
+<div class="flex flex-col justify-center">
+  <p class="mb-4">SAP AI Core werkt met een Capacity Unit (CU) model voor kostenberekening en resourcetoewijzing.</p>
+</div>
+
+<div class="grid grid-cols-1 gap-6">
+<div>
+
+## Kostencomponenten: Instances
+
+- Computationele kracht voor model training en inferentie
+- Berekend per Node Hours per Month
+- Kosten variëren op basis van CPU/GPU configuratie
+
+</div>
+</div>
+
+---
+layout: default
+transition: slide-left
+hideInToc: true
+---
+
+# SAP AI Core: Storage Costs
+
+<div class="grid grid-cols-1 gap-6">
+<div>
+
+## Storage
+
+- Standard SSD Volumes voor data en modelopslag
+- Berekend als **0.0003 CU / GB / Hour**
+- Belangrijk voor:
+  - Trainingsdata
+  - Model artifacts
+  - Resultaten en logs
+
+</div>
+</div>
+
+---
+layout: default
+transition: slide-left
+hideInToc: true
+---
+
+# SAP AI Core: Baseline kosten
+
+<div class="grid grid-cols-1 gap-6">
+<div>
+
+## Vaste clusterresources
+
+- **1.2241 CU / Hour** voor basisinfrastructuur
+- Onafhankelijk van workload en gebruik
+- Benodigd voor orchestratie en beheer
+- Wordt gedeeld over alle workloads in het cluster
+
+</div>
+</div>
+
+---
+layout: default
+transition: slide-left
+hideInToc: true
+---
+
+# SAP AI Core: Kostenoptimalisatie
+
+<div class="grid grid-cols-1 gap-6">
+<div>
+
+## Strategieën voor optimaal gebruik
+
+- Schaalbaarheid op basis van projectbehoeften
+- Training versus inferentie resources
+- Levenscyclusbeheer voor ongebruikte resources
+- Gedeelde resources binnen subaccounts
+- Batch processing voor efficiënt gebruik
+
+</div>
+</div>
+
+---
+layout: default
+transition: slide-left
+---
+
+# SAP Generative AI Hub
+
+<div class="grid grid-cols-1 gap-6">
+<div>
+
+## Inleiding
+
+- Gespecialiseerde kostenberekening voor generatieve AI
+- Ontworpen voor LLM toepassingen en generatieve modellen
+- Eenvoudiger prijsmodel vergeleken met standard AI Core
+- Focus op API-interacties in plaats van infrastructuur
+
+</div>
+</div>
+
+---
+layout: default
+transition: slide-left
+hideInToc: true
+---
+
+# Generative AI Hub: Kostencomponenten
+
+<div class="grid grid-cols-1 gap-6">
+<div>
+
+## Requests (0.0048 CU/maand)
+
+- Berekend op basis van tokengebruik
+- Afhankelijk van het geselecteerde model
+- Input en output tokens worden apart berekend
+- Gebaseerd op gebruik per maand
+
+</div>
+</div>
+
+---
+layout: default
+transition: slide-left
+hideInToc: true
+---
+
+# Generative AI Hub: Orchestration
+
+<div class="grid grid-cols-1 gap-6">
+<div>
+
+## Orchestration (0.0007 CU/maand)
+
+- Coördinatie van AI-stromen
+- Text Blocks orchestratie
+- Controle en beheer van model-interacties
+- Aansturing van meerdere AI-diensten
+
+</div>
+</div>
+
+---
+layout: default
+transition: slide-left
+hideInToc: true
+---
+
+# Generative AI Hub: Kostencalculatie
+
+<div class="grid grid-cols-1 gap-6">
+<div>
+
+## Instructions Section
+
+- Definitie van tokens per request
+- Selectie van beschikbare modellen
+- Bepaling van frequentie per maand
+
+</div>
+</div>
+
+---
+layout: default
+transition: slide-left
+hideInToc: true
+---
+
+# Generative AI Hub: Specificaties
+
+<div class="grid grid-cols-1 gap-6">
+<div>
+
+## Model configuratie
+
+- Model selectie (naam en versie)
+- Input tokens configuratie
+- Output tokens instelling
+- Gebruik per maand
+
+</div>
+</div>
+
+---
+layout: default
+transition: slide-left
+hideInToc: true
+---
+
+# Generative AI Hub: Totale kosten
+
+<div class="grid grid-cols-1 gap-6">
+<div>
+
+## Kostenoverzicht
+
+- Cumulatief: **0.0055 CU per maand**
+- Transparante uitsplitsing componenten
+- Betalen naar gebruik (pay-as-you-go)
+- Voorspelbare kostenstructuur
+
+</div>
+</div>
+
+---
+layout: default
+transition: slide-left
+---
+
+# Vergelijking: Toepassingsgebieden
+
+<div class="grid grid-cols-2 gap-6">
+<div>
+
+## Standard AI Core: Focus
+
+- Algemene AI-workloads
+- Model training & deployment
+- Computer Vision toepassingen
+- Predictive analytics
+- Custom model ontwikkeling
+
+</div>
+<div>
+
+## Generative AI Hub: Focus
+
+- Specifiek voor generatieve AI
+- LLM toepassingen
+- Text-to-text, text-to-image
+- Chatbots en assistenten
+- Content generatie
+
+</div>
+</div>
+
+---
+layout: default
+transition: slide-left
+hideInToc: true
+---
+
+# Vergelijking: Kostenmodellen
+
+<div class="grid grid-cols-2 gap-6">
+<div>
+
+## Standard AI Core
+
+- Instance-gebaseerd (CPU/GPU)
+- Storage kosten (0.0003 CU/GB/Hour)
+- Vaste clusterkosten (1.2241 CU/Hour)
+- Geoptimaliseerd voor rekenintensieve taken
+
+</div>
+<div>
+
+## Generative AI Hub
+
+- Token-gebaseerd prijsmodel
+- Request-georiënteerd (0.0048 CU/maand)
+- Orchestration kosten (0.0007 CU/maand)
+- Geoptimaliseerd voor API-interacties
+
+</div>
+</div>
+
+---
+layout: default
+transition: slide-left
+hideInToc: true
+---
+
+# Keuze: Standard AI Core vs. Generative AI Hub
+
+<div class="mt-4 p-4 bg-gradient-to-br from-[#5A32C8]/10 to-[#9F89D7]/10 rounded-lg">
+  <h3 class="text-xl font-bold mb-3">Wanneer kies je welke calculator?</h3>
+  
+  <div class="grid grid-cols-2 gap-4">
+    <div>
+      <h4 class="text-lg font-bold mb-2">Standard AI Core</h4>
+      <ul class="space-y-2">
+        <li>Voor custom model training</li>
+        <li>Computer Vision projecten</li>
+        <li>Machine Learning workflows</li>
+        <li>Predictive analytics</li>
+      </ul>
+    </div>
+    
+    <div>
+      <h4 class="text-lg font-bold mb-2">Generative AI Hub</h4>
+      <ul class="space-y-2">
+        <li>Voor chatbot applicaties</li>
+        <li>LLM-gebaseerde toepassingen</li>
+        <li>Content generatie</li>
+        <li>Text-to-image conversie</li>
+      </ul>
+    </div>
   </div>
 </div>
